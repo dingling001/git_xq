@@ -1,0 +1,48 @@
+<!--pages/my/my_invited/my_invited.wxml-->
+<view class='invite_list'>
+  <view class='invite_item'>
+    <view class='invite_img'>
+      <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+    </view>
+    <view class='invite_right'>
+      <view class='invite_right_top'>
+        <text class='name'>妞妞打牛牛</text>
+        <text class='time'>2018-08-08  14:20</text>
+      </view>
+      <view class='invite_right_bottom'>
+        <view class='invited'>向你发起了陪聊天的需求应邀</view>
+        <view class='invtied_btn'>成交</view>
+      </view>
+    </view>
+  </view>
+  <view class='invite_item'>
+    <view class='invite_img'>
+      <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+    </view>
+    <view class='invite_right'>
+      <view class='invite_right_top'>
+        <text class='name'>妞妞打牛牛</text>
+        <text class='time'>2018-08-08  14:20</text>
+      </view>
+      <view class='invite_right_bottom'>
+        <view class='invited'>向你发起了陪聊天的需求应邀</view>
+        <view class='invtied_btn'>成交</view>
+      </view>
+    </view>
+  </view>
+  <view class='invite_item'>
+    <view class='invite_img'>
+      <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+    </view>
+    <view class='invite_right'>
+      <view class='invite_right_top'>
+        <text class='name'>妞妞打牛牛</text>
+        <text class='time'>2018-08-08  14:20</text>
+      </view>
+      <view class='invite_right_bottom'>
+        <view class='invited'>向你发起了陪聊天的需求应邀</view>
+        <view class='invtied_btn'>成交</view>
+      </view>
+    </view>
+  </view>
+</view>

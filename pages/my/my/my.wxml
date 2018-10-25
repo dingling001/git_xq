@@ -1,0 +1,98 @@
+<!--pages/my/my.wxml-->
+<view class='my_top'>
+  <view class='my_img'>
+    <image src='{{user_info.avatar}}' mode='widthFix'></image>
+  </view>
+  <view class='my_right'>
+    <view class='name_box'>
+      <text>{{user_info.nickname}}</text>
+      <view class='name_right'>
+        <view class='name_img'>
+          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+        </view>
+        <text>{{user_info.credit}}</text>
+      </view>
+    </view>
+    <view class='my_auth'>
+      <view class='name_img' hidden='{{user_info.vip==0}}'>
+        <image src='../../assets/imgs/vip.svg' mode='widthFix'></image>
+      </view>
+      <block>
+        <text wx:if='{{user_info.status}}'>已认证</text>
+        <text wx:else>未认证</text>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='my_list'>
+  <navigator class='my_item' url='../prize/prize'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-jiangpin'></text>
+      <text>中奖纪录</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <view class='my_item' bindtap='go_auth'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-shimingrenzheng'></text>
+      <text>实名认证</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </view>
+  <navigator class='my_item' url='../my_info/my_info'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-geren'></text>
+      <text>个人资料</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <navigator class='my_item' url='../my_invited/my_invited'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-yaoqing'></text>
+      <text>我的应邀</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <navigator class='my_item' url='../my_rel/my_rel'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-fabu'></text>
+      <text>我的发布</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <navigator class='my_item' url='../my_demand/my_demand'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-xuqiu-hui'></text>
+      <text>应邀需求</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <navigator class='my_item' url='../my_account/my_account'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-wodezhanghu'></text>
+      <text>我的账户</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <navigator class='my_item' url='../my_vip/my_vip'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-huiyuan4'></text>
+      <text>会员中心</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <navigator class='my_item' url='../my_invitation/my_invitation'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-women'></text>
+      <text>我的邀请</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </navigator>
+  <view class='my_item' bindtap='contact'>
+    <view class='my_item_l'>
+      <text class='iconfont icon-lianxiwomen'></text>
+      <text>联系我们</text>
+    </view>
+    <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+  </view>
+</view>

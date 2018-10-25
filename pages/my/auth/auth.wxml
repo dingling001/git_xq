@@ -1,0 +1,58 @@
+<!--pages/my/auth/auth.wxml-->
+<view class='input_outbox'>
+  <view class='input_box'>
+    <label>真实姓名：</label>
+    <input bindinput='name_tex'></input>
+  </view>
+  <view class='input_box'>
+    <label>身份证号码：</label>
+    <input bindinput='id_card_text' maxlength='18'></input>
+  </view>
+  <view class='input_box'>
+    <label>联系电话：</label>
+    <input bindinput='phone_text' type='number' maxlength='11'></input>
+  </view>
+</view>
+<view class='idcard_box'>
+  <view>请上传您手持身份证照片</view>
+  <view class='idcard_imgs'>
+    <view class='add_img'>
+      <image src='../../assets/imgs/idcard.png' mode='widthFix'></image>
+    </view>
+    <view class='add_img' bindtap='img_fun'>
+      <image wx:if='{{img}}'  mode='widthFix' src='{{img}}'></image>
+      <block wx:else>
+        <view class='iconfont icon-zhaopianphoto177'></view>
+        <view>上传您的照片</view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='idcard_box'>
+  <view>请上传您身份证照片</view>
+  <view class='idcard_imgs'>
+    <view class='add_img'>
+      <image src='../../assets/imgs/idcard.png' mode='widthFix'></image>
+    </view>
+    <view class='add_img' bindtap='img1_fun'>
+      <image wx:if='{{img1}}'  mode='widthFix' src='{{img1}}'></image>
+      <block wx:else>
+        <view class='iconfont icon-zhaopianphoto177'></view>
+        <view>上传身份证正面照片</view>
+      </block>
+    </view>
+  </view>
+    <view class='idcard_imgs'>
+    <view class='add_img'>
+      <image src='../../assets/imgs/idcard.png' mode='widthFix'></image>
+    </view>
+    <view class='add_img' bindtap='img2_fun'>
+      <image wx:if='{{img2}}'  mode='widthFix' src='{{img2}}'></image>
+      <block wx:else>
+        <view class='iconfont icon-zhaopianphoto177'></view>
+        <view>上传身份证反面照片</view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='id_btn' bindtap='sub_auth'>提交</view>

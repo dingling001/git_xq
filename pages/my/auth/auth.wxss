@@ -1,0 +1,87 @@
+/* pages/my/auth/auth.wxss */
+
+.input_outbox {
+  background-color: #fff;
+}
+
+.input_box {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+  margin: 0 24rpx 0 33rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  color: #000;
+}
+
+.input_box input {
+  background-color: #eee;
+  border-radius: 10rpx;
+  height: 58rpx;
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.input_box:first-child {
+  margin-top: 32rpx;
+  border-bottom: 1px solid #f5f6f8;
+}
+
+.idcard_box {
+  padding: 31rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  color: #000;
+  margin: 21rpx 0;
+}
+
+.idcard_imgs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx 0;
+}
+
+.add_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 164rpx;
+  width: 302rpx;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #999;
+  font-size: 22rpx;
+}
+
+.add_img:last-child {
+  border: 2px dashed #bfbfbf;
+}
+
+.add_img image {
+  width: 100%;
+}
+
+.icon-zhaopianphoto177 {
+  color: #ccc;
+  font-size: 45rpx;
+}
+
+.id_btn {
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  width: 46%;
+  margin:107rpx auto;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 22rpx 0;
+}
+
+.id_btn:active {
+  opacity: 0.7;
+}

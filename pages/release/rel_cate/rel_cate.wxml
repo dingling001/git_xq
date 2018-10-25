@@ -1,0 +1,15 @@
+<!--pages/release/rel_cate/rel_cate.wxml-->
+<view class='left_nav'>
+  <view wx:for='{{list}}' wx:key='{{item.id}}' wx:for-item='item' class='left_item {{index==ind?"left_item_acitve":""}}' bindtap='changenav' wx:for-index='index' data-index='{{index}}'>{{item}}</view>
+</view>
+<view class='cate_list' wx:if='{{index==ind}}' wx:for='{{catelist}}' wx:for-index='index' wx:for-item='item' wx:key='{{item.id}}'>
+  <view class='nodata' wx:if='{{item.child.length==0}}'>暂无数据</view>
+  <block wx:else>
+    <view class='cate_item' bindtap='back_rel' wx:for='{{item.child}}' wx:for-item='child' wx:key='{{child.id}}' data-id='{{child.id}}' data-name='{{child.cate_name}}'>
+      <view class='cate_item_img'>
+        <image mode='widthFix' src='{{child.cover}}'></image>
+      </view>
+      <view class='cate_item_text'>{{child.cate_name}}</view>
+    </view>
+  </block>
+</view>

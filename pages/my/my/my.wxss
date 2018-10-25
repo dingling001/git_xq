@@ -1,0 +1,126 @@
+/* pages/my/my.wxss */
+
+page {
+  background-color: #f5f6f8;
+  padding-bottom: 50rpx;
+}
+
+.my_top {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 31rpx 38rpx;
+  border-top: 1px solid #f6f7f9;
+}
+
+.my_top .my_img {
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 50%;
+  /* border: 1px solid #fd5a2f; *//* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10rpx;
+  position: relative;
+}
+
+.my_top .my_img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 1px solid #fd5a2f;
+  width: 200%;
+  height: 200%;
+  transform-origin: 0 0;
+  transform: scale(0.5, 0.5);
+  box-sizing: border-box;
+}
+
+.my_top .my_img image {
+  width: 100%;
+}
+
+.name_box {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #222;
+}
+
+.name_right {
+  width: 84rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5deb6;
+  color: #ffb029;
+  font-size: 19rpx;
+  margin-left: 11rpx;
+}
+
+.icon-gerenrongyu {
+  color: #ffb029;
+  font-size: 25rpx;
+}
+
+.icon-huangjinhuiyuan {
+  color: #ffd330;
+  margin-right: 11rpx;
+}
+
+.my_auth {
+  font-size: 24rpx;
+  color: #fd5a2f;
+  display: flex;
+  align-items: center;
+}
+
+.name_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.my_auth .name_img {
+  margin: 0 10rpx 0 0;
+}
+
+.my_list {
+  margin: 22rpx 0 0 0;
+}
+
+.my_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 19rpx 25rpx 16rpx 29rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  color: #000;
+  border-bottom: 1px solid #f6f7f9;
+}
+
+.my_item_l {
+  display: flex;
+  align-items: center;
+}
+
+.my_item_l .iconfont {
+  color: #fd4336;
+  font-size: 44rpx;
+  margin-right: 15rpx;
+}
+
+/* .my_item:active {
+  background-color: rgba(0, 0, 0, 0.01);
+} */
+
+.icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing {
+  color: #ccc;
+}

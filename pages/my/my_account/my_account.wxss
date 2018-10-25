@@ -1,0 +1,119 @@
+/* pages/my/my_account/my_account.wxss */
+
+.account_top {
+  height: 300rpx;
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  font-size: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.account_top_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 23rpx 35rpx;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.account_btn {
+  height: 50rpx;
+  width: 100rpx;
+  color: #fff;
+  background-color: rgba(243, 245, 248, 0.5);
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+
+.account_sub {
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  width: 46%;
+  margin: 212rpx auto;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 26rpx 0;
+}
+
+.account_sub:active {
+  opacity: 0.7;
+}
+
+.account_mold {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.account_mold_item {
+  height: 337rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  color: #333;
+  font-size: 26rpx;
+  flex-direction: column;
+  width: 79%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.account_btn_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f00;
+  font-size: 30rpx;
+  width: 100%;
+}
+
+.account_btn_box view {
+  flex: 1;
+  text-align: center;
+  color: #fd5e2e;
+  padding: 25rpx 0;
+}
+
+.account_title {
+  padding: 35rpx 0 0 0;
+  font-size: 30rpx;
+}
+
+.account_content {
+  text-align: center;
+  line-height: 42rpx;
+}
+
+.account_btn_box .account_entrue {
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  color: #fff;
+}

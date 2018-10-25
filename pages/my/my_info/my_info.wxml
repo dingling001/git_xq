@@ -1,0 +1,80 @@
+<!--pages/my/my_info/my_info.wxml-->
+<view class='tips'>
+  <view>完善个人信息</view>
+  <view class='save'>保存</view>
+</view>
+<view class='info_list'>
+  <view class='info_item'>
+    <text>昵称</text>
+    <view>
+      <input class='info_right' value='{{userInfo.nickname}}' bindinput='nickname_fun'></input>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>性别</text>
+    <view>
+      <picker range='{{sex}}' bindchange='sex_fun'>
+        <text>{{sex[sex_index]}}</text>
+      </picker>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>年龄</text>
+    <view>
+      <picker range='{{age}}' bindchange='age_fun' value='12'>
+        <text class='info_right'>{{age[age_index]}}</text>
+      </picker>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>职业</text>
+    <view>
+     <picker range='{{jobList}}' bindchange='job_fun' value='0'>
+         <text class='info_right'>{{userInfo.job}}</text>
+      </picker>
+    
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>家乡</text>
+    <view>
+      <text class='info_right'>{{userInfo.city}}</text>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>个人简历</text>
+    <view>
+      <text class='info_right'>{{userInfo.resume}}</text>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>工作经历</text>
+    <view>
+      <text class='info_right'>{{userInfo.career}}</text>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>联系方式</text>
+    <view>
+      <text class='info_right'>{{userInfo.tel}}</text>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
+    </view>
+  </view>
+  <view class='info_item'>
+    <text>实名认证</text>
+    <view>
+      <block>
+        <text class='info_right' wx:if='{{userInfo.status==1}}'>已认证</text>
+        <text class='info_right' wx:else>未认证</text>
+      </block>
+      <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing '></text>
+    </view>
+  </view>
+</view>

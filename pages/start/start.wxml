@@ -1,0 +1,12 @@
+<!--pages/start/start.wxml-->
+<view class='login_box'>
+  <view class='login_top'>
+    <view class='bgc'>
+      <image mode='widthFix' src='../assets/imgs/bgc.png'></image>
+    </view>
+    <view class='logo'>
+      <image mode='widthFix' src='../assets/imgs/logo.png'></image>
+    </view>
+  </view>
+  <button open-type="getUserInfo" bindgetuserinfo='login' class='login' hover-class='none' lang='zh_CN'>立即开启</button>
+</view>

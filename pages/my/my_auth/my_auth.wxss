@@ -1,0 +1,32 @@
+/* pages/my/my_auth/my_auth.wxss */
+page{
+  background-color: #fff;
+}
+.my_auth_title {
+  font-size: 36rpx;
+  color: #222;
+  text-align: center;
+  margin: 379rpx 0 0 0;
+  font-weight: bold;
+}
+
+.my_auth_tip {
+  color: #222;
+  font-size: 26rpx;
+  padding: 31rpx 0 0 0;
+  text-align: center;
+}
+
+.back_index {
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  width: 46%;
+  margin: 84rpx auto;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 22rpx 0;
+}

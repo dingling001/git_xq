@@ -1,0 +1,80 @@
+<!--pages/release/release.wxml-->
+<view class='rel_tips'>请尽量完善您的需求</view>
+<scroll-view scroll-y='true'> 
+<form bindsubmit='release_fun' report-submit='true'>
+
+  <view class='rel_item border1'>
+    <text>需求标题</text>
+    <input placeholder='请少于30字' placeholder-class='rel_input' type='text' maxlength='30' auto-focus bindinput='title_input'></input>
+  </view>
+  <view class='rel_content'>
+    <textarea placeholder='可以描述您的需求内容，需求要求，特别说明等（225字内）' placeholder-class='textarea' maxlength='225' bindinput='content_input'></textarea>
+    <view class='imgs_box'>
+      <view class='add_photo' wx:for='{{img_list}}' wx:for-item='item' wx:key='*this' wx:for-index='index'>
+        <image src='{{item}}' mode='widthFix'></image>
+        <view class='iconfont icon-quxiao' bindtap='delete_img' data-index='{{index}}'></view>
+      </view>
+      <view class='add_photo' bindtap='rel_img' wx:if='{{showAdd}}'>
+        <view class='iconfont icon-zhaopianphoto177'></view>
+        <view>添加照片</view>
+      </view>
+    </view>
+  </view>
+  <view class='rel_item'>
+    <text>需求金额（元）</text>
+    <input placeholder='服务金额不得低于或高于市场价格的10%' placeholder-class='rel_input' type='number' bindinput='price_input'></input>
+  </view>
+  <view class='rel_item fee_box'>
+    <text> 服 务 费 （元）</text>
+    <text wx:if='{{fee}}' class='rel_fee'>{{fee}}</text>
+    <text wx:else  class='rel_input'>根据当前需求金额自动计算</text>
+    <!-- <input placeholder=' 服务金额不得低于或高于市场价格的10%' placeholder-class='rel_input' type='number'></input> -->
+  </view>
+  <view class='rel_item'>
+    <text>需求人数（位）</text>
+    <input placeholder='填写需求人数' placeholder-class='rel_input' type='number' bindinput='num_input'></input>
+  </view>
+  <navigator class='rel_item' hover-class='none' url='../rel_cate/rel_cate'>
+    <text>需求类型</text>
+    <view class='picker_box'>
+      <text>{{cate_name}}</text>
+      <!-- <picker mode='selector' range='{{list}}' bindchange='cate_fun'>{{list[index]}}</picker> -->
+      <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+    </view>
+  </navigator>
+  <view class='rel_item'>
+    <text>需求地点</text>
+    <view class='picker_box' bindtap='choose_address'>
+      <view>{{address}}</view>
+      <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+    </view>
+  </view>
+  <!-- <view class='rel_item notrequire'>
+  <view class='notrequire_view'>
+    <view>可选信息</view>
+    <input placeholder='详细描述您的需求（可不填写）'></input>
+  </view>
+</view> -->
+  <view class='rel_item'>
+    <text>订单有效时间</text>
+    <view class='picker_box'>
+      <block>
+        <picker bindchange="pickeTime" value="{{index}}" range="{{times}}">{{times[tindex]}}</picker>
+        <!-- <picker mode='date' bindchange='end_date_fun' start='{{start_time}}' wx:if='{{showdate}}'> 选择日期</picker> -->
+        <!-- <picker mode='time' wx:else bindchange='end_time_fun'>选择时间</picker> -->
+      </block>
+      <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+    </view>
+  </view>
+  <view class='rel_item'>
+    <text>订单完成时间</text>
+    <view class='picker_box'>
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="changedateTime" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray}}">
+        {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+      </picker>
+      <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+    </view>
+  </view>
+  <button class='rel_btn' form-type='submit'>发布</button>
+</form>
+</scroll-view>

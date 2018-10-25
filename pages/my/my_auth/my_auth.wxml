@@ -1,0 +1,4 @@
+<!--pages/my/my_auth/my_auth.wxml-->
+<view class='my_auth_title'>您的实名信息已提交审核</view>
+<view class='my_auth_tip'>请点击返回首页，去逛逛</view>
+<view class='back_index' bindtap='goBack'>返回首页</view>

@@ -1,0 +1,86 @@
+/* pages/my/my_invited/my_invited.wxss */
+
+.invite_img {
+  height: 87rpx;
+  width: 87rpx;
+  border-radius: 50%;
+  /* border: 1px solid #fd5a2f; *//* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.invite_item {
+  display: flex;
+  margin: 22rpx 24rpx 0 24rpx;
+  background-color: #fff;
+  padding: 20rpx 23rpx;
+  height: 135rpx;
+  border-radius: 20rpx;
+}
+
+.invite_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.invite_right_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.invite_right_top .name {
+  font-size: 30rpx;
+  color: #000;
+}
+
+.invite_right_top .time {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.invite_item .invite_img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 1px solid #fd5a2f;
+  width: 200%;
+  height: 200%;
+  transform-origin: 0 0;
+  transform: scale(0.5, 0.5);
+  box-sizing: border-box;
+}
+
+.invite_item .invite_img image {
+  width: 100%;
+}
+
+.invite_right_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.invite_right_bottom .invited {
+  color: #222;
+  font-size: 24rpx;
+}
+
+.invite_right_bottom .invtied_btn {
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  padding: 0 35rpx;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}

@@ -1,0 +1,22 @@
+<!--pages/my/my_account/my_account.wxml-->
+<view class='account_top'>
+  <view class='account_top_item'>
+    <text>余额（元）</text>
+    <view class='account_btn'>明细</view>
+  </view>
+  <text>00.00</text>
+</view>
+<view class='account_sub' bindtap='cash_fun'>我要提现</view>
+<view class='account_mold' wx:if='{{cash_show}}'>
+  <view class='account_mold_item'>
+    <view class='account_title'>提现规则</view>
+    <view class='account_content'>
+      <view>平台会收取您3%手续费用</view>
+      <view>您当前的可以提现金额为100.00元</view>
+    </view>
+    <view class='account_btn_box'>
+      <view bindtap='cash_cancel'>取消</view>
+      <view class='account_entrue'>确认</view>
+    </view>
+  </view>
+</view>

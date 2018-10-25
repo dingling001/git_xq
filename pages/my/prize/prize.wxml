@@ -1,0 +1,64 @@
+<!--pages/my/prize/prize.wxml-->
+
+<view class='prize_list'>
+  <view class='prize_item' bindtap='go_prize_detail'>
+    <view class='prize_order_num'>
+      <text>订单号：12585224562</text>
+      <text class='prize_status'>进行中</text>
+    </view>
+    <view class='prize_good'>
+      <view class='prize_img'>
+        <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+      </view>
+      <view class='prize_right'>
+        <view class='prize_name'>中秋月饼礼盒套装</view>
+        <view class='prize_info'>15只装</view>
+        <view class='prize_num'>数量：1</view>
+      </view>
+    </view>
+    <view class='prize_order_num'>
+      <text class='prize_status'>等待开奖</text>
+      <text>2018年9月25日  16:00开奖</text>
+    </view>
+  </view>
+  <view class='prize_item' bindtap='go_prize_detail'>
+    <view class='prize_order_num'>
+      <text>订单号：12585224562</text>
+      <text class='prize_status'>进行中</text>
+    </view>
+    <view class='prize_good'>
+      <view class='prize_img'>
+        <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+      </view>
+      <view class='prize_right'>
+        <view class='prize_name'>中秋月饼礼盒套装</view>
+        <view class='prize_info'>15只装15只装15只装15只装15只装15只装15只装15只装15只装15只装15只装</view>
+        <view class='prize_num'>数量：1</view>
+      </view>
+    </view>
+    <view class='prize_order_num'>
+      <text class='prize_status'>等待开奖</text>
+      <text>2018年9月25日  16:00开奖</text>
+    </view>
+  </view>
+  <view class='prize_item' bindtap='go_prize_detail'>
+    <view class='prize_order_num'>
+      <text>订单号：12585224562</text>
+      <text class='prize_status'>进行中</text>
+    </view>
+    <view class='prize_good'>
+      <view class='prize_img'>
+        <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+      </view>
+      <view class='prize_right'>
+        <view class='prize_name'>中秋月饼礼盒套装</view>
+        <view class='prize_info'>15只装</view>
+        <view class='prize_num'>数量：1</view>
+      </view>
+    </view>
+    <view class='prize_order_num'>
+      <text class='prize_status'>等待开奖</text>
+      <text>2018年9月25日  16:00开奖</text>
+    </view>
+  </view>
+</view>

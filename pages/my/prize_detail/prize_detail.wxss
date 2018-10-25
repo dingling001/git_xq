@@ -1,0 +1,58 @@
+/* pages/my/prize_detail/prize_detail.wxss */
+
+page {
+  padding-bottom: 100rpx;
+}
+
+.prize_open_time {
+  padding: 30rpx 21rpx;
+  font-size: 28rpx;
+  color: #000;
+  background-color: #fff;
+}
+
+.prize_img {
+  width: 100%;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+  /* height: 330rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.prize_img image {
+  width: 100%;
+}
+
+.prize_item {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 30rpx;
+  background-color: #fff;
+  border-top: 1px solid #f5f6f8;
+  font-size: 28rpx;
+  justify-content: space-between;
+}
+
+.prize_item .prize_time {
+  color: #666;
+  font-size: 24rpx;
+}
+
+navigator ,.navigator{
+  margin-top: 22rpx;
+}
+.navigator
+
+.icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing {
+  color: #ccc;
+}
+.prized{
+  text-align: center;
+  color: #FD5A2F;
+  font-size: 28rpx;
+}

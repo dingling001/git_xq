@@ -1,0 +1,33 @@
+<!--pages/my/prize_detail/prize_detail.wxml-->
+<view class='prize_open_time prized' wx:if="{{prized}}">
+  恭喜您，您已获得中秋月饼
+</view>
+<view class='prize_open_time' wx:else>
+  开奖时间：2018年9月25日 16:00
+</view>
+<view class='prize_img'>
+  <image mode='widthFix' src='../../assets/imgs/good1.png'></image>
+</view>
+<view class='prize_open_time'>
+  中秋礼盒套装
+</view>
+<view class='prize_item'>
+  <view>奖品规则：</view>
+  <view class='prize_time'>定时开奖</view>
+</view>
+<view class='prize_item'>
+  <view>奖品状态：</view>
+  <view class='prize_time'>待开奖</view>
+</view>
+<view class='prize_item'>
+  <view>开奖时间：</view>
+  <view class='prize_time'>2018-09-25 16:00</view>
+</view>
+<view class='prize_item navigator' wx:if="{{prized}}">
+  <view>填写邮寄地址</view>
+  <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+</view>
+<navigator class='prize_item' wx:else>
+  <view>查看抽奖情况</view>
+  <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+</navigator>

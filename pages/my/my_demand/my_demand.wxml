@@ -1,0 +1,95 @@
+<!--pages/my/my_demand/my_demand.wxml-->
+<view class='rel_nav'>
+  <text class='text_actve'>全部</text>
+  <text>待完成</text>
+  <text>已完成</text>
+</view>
+<view class='rel_list rel_all'>
+  <view class='rel_item'>
+    <view class='rel_content'>
+      <text>需求内容</text>
+      <view class='name_right'>
+        <view class='name_img'>
+          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+        </view>
+        <view class='rongyu'>60</view>
+      </view>
+    </view>
+    <view class='rel_text'>最近想去马尔代夫旅游 ，有没有想一起去的</view>
+    <view class='rel_info'>
+      <text>需求人数</text>
+      <text class='rel_info_r'>1人</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求类型</text>
+      <text class='rel_info_r'>聊天</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求地点</text>
+      <text class='rel_info_r'>天津市西青区桂园路22号</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布时间</text>
+      <text class='rel_info_r'>2018-08-23 10:23</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布状态</text>
+      <text class='rel_info_r rel_invited'>已接受</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
+      <text class='rel_info_r'>￥100</text>
+    </view>
+    <view class='rel_info'>
+      <text>联系方式</text>
+      <text class='rel_info_r'>13115212520</text>
+    </view>
+    <view class='rel_info status'>
+      <text class='rel_status'>拨打</text>
+      <text class='rel_status'>取消</text>
+    </view>
+  </view>
+  <view class='rel_item'>
+    <view class='rel_content'>
+      <text>需求内容</text>
+      <view class='name_right'>
+        <view class='name_img'>
+          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+        </view>
+        <view class='rongyu'>60</view>
+      </view>
+    </view>
+    <view class='rel_text'>最近想去马尔代夫旅游 ，有没有想一起去的</view>
+    <view class='rel_info'>
+      <text>需求人数</text>
+      <text class='rel_info_r'>1人</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求类型</text>
+      <text class='rel_info_r'>聊天</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求地点</text>
+      <text class='rel_info_r'>天津市西青区桂园路22号</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布时间</text>
+      <text class='rel_info_r'>2018-08-23 10:23</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布状态</text>
+      <text class='rel_info_r rel_invited'>已完成</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
+      <text class='rel_info_r'>￥100</text>
+    </view>
+    <view class='rel_info'>
+      <text>联系方式</text>
+      <text class='rel_info_r'>13115212520</text>
+    </view>
+    <view class='rel_info status'>
+      <text class='rel_status'>评价</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+/* pages/my/prize/prize.wxss */
+
+page {
+  background-color: #f5f6f8;
+}
+
+.prize_list {
+  margin: 21rpx 0 0 0;
+}
+.prize_item{
+  margin-bottom: 21rpx;
+  /* background-color: #fff; */
+}
+.prize_order_num {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17rpx 32rpx 17rpx 28rpx;
+  font-size: 24rpx;
+  color: #222;
+  background-color: #fff;
+}
+
+.prize_order_num .prize_status {
+  color: #fd5a2f;
+}
+
+.prize_good {
+  padding: 25rpx 0 25rpx 29rpx;
+  display: flex;
+  /* border-top: 1px solid #f5f6f8;
+  border-bottom: 1px solid #f5f6f8; */
+}
+
+.prize_img {
+  height: 160rpx;
+  width: 180rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-right: 22rpx;
+}
+
+.prize_img image {
+  width: 100%;
+}
+
+.prize_name {
+  font-size: 28rpx;
+  color: #222;
+  font-weight: 600;
+  padding: 9rpx 0;
+}
+
+.prize_info {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.prize_num {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.prize_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,69 @@
+/* pages/release/rel_cate/rel_cate.wxss */
+
+.left_nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 298rpx;
+  height: 100%;
+  overflow: scroll;
+  background-color: #fff;
+}
+
+.left_nav .left_item {
+  padding: 33rpx 0 28rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+  color: #000;
+}
+
+.left_nav .left_item_acitve {
+  color: #fd5e2e;
+  background-color: #f5f6f8;
+  font-weight: bold;
+}
+
+.cate_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 298rpx;
+  padding: 25rpx 18rpx 0 24rpx;
+}
+
+.cate_item {
+  font-size: 28rpx;
+  color: #000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cate_item_text {
+  padding: 21rpx 0 33rpx 0;
+  text-align: center;
+}
+
+.cate_item_img {
+  width:199rpx;
+  height:199rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.cate_item_img image {
+  width: 100%;
+}
+
+.nodata {
+  padding: 30rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: #ccc;
+  width: 100%;
+}
