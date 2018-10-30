@@ -1,11 +1,11 @@
 <!--pages/my/my_rel/my_rel.wxml-->
 <view class='rel_nav'>
-  <text class='text_actve'>全部</text>
-  <text>审核中</text>
-  <text>进行中</text>
-  <text>已完成</text>
+  <text class='{{tab==0?"text_actve":""}}' bindtap='changeTab' data-tab='0'>全部</text>
+  <text class='{{tab==1?"text_actve":""}}' bindtap='changeTab' data-tab='1'>审核中</text>
+  <text class='{{tab==2?"text_actve":""}}' bindtap='changeTab' data-tab='2'>进行中</text>
+  <text class='{{tab==3?"text_actve":""}}' bindtap='changeTab' data-tab='3'>已完成</text>
 </view>
-<view class='rel_list rel_all'>
+<view class='rel_list rel_all' wx:if='{{tab==0}}'>
   <view class='rel_item'>
     <view class='rel_content'>
       <text>需求内容</text>
@@ -123,3 +123,6 @@
     </view>
   </view>
 </view>
+<view class='rel_list' wx:elif='{{tab==1}}'>审核中</view>
+<view class='rel_list' wx:elif='{{tab==2}}'>进行中</view>
+<view class='rel_list' wx:else>已完成</view>

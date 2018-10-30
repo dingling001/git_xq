@@ -4,16 +4,41 @@ Page({
 
 
   data: {
-
+    page:0,
+    perpage:10,
+    myApplyList:[]
   },
 
   onLoad: function (options) {
-
+    this.getmyinvited()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+getmyinvited(){
+  var that = this;
+  wx.getStorage({
+    key: 'token',
+    success: (res_token) => {
+      network.POST({
+        url: 'index/myApplyList',
+        header: 'application/x-www - form - urlencoded',
+        params: {
+          token: res_token.data,
+          page:that.data.page,
+          perpage: that.data.perpage
+        },
+        success(res) {
+          console.log(res);
+          if (res.data.code == 1) {
+            that.setData({
+              myApplyList:res.data.data.list
+            })
+          } else {
+            console.log(res);
+          }
+        }
+      })
+    },
+  })
+},
   onReady: function () {
 
   },

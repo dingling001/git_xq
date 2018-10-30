@@ -1,23 +1,50 @@
 // pages/my/my_demand/my_demand.js
+var network = require("../../../utils/network.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tab: 0,
+    page: 0,
+    perpage: 10,
+    myrelyList: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  changeTab(e) {
+    // console.log(e)
+    this.setData({
+      tab: e.target.dataset.tab
+    })
+  },
+  getmyChoiceList() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'index/myChoiceList',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+            page: that.data.page,
+            perpage: that.data.perpage
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+              that.setData({
+                myrelyList: res.data.data.data
+              })
+            } else {
+              console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
   onLoad: function (options) {
-
+    this.getmyChoiceList()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },

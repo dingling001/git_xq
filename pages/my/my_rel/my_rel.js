@@ -1,66 +1,93 @@
 // pages/my/my_rel/my_rel.js
+var network = require("../../../utils/network.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tab: 0,
+    page: 0,
+    perpage: 10,
+    myrelyList: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  changeTab(e) {
+    // console.log(e)
+    this.setData({
+      tab: e.target.dataset.tab
+    })
+  },
+  getmyRelease() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'index/myRelease',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+            page: that.data.page,
+            perpage: that.data.perpage
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+              that.setData({
+                myrelyList: res.data.data.list
+              })
+            } else {
+              console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
+  onLoad: function(options) {
+    this.getmyRelease()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

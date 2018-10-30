@@ -1,2 +1,33 @@
 <!--pages/release/rel_pay/rel_pay.wxml-->
-<text>pages/release/rel_pay/rel_pay.wxml</text>
+  <view class='rel_item'>
+    <view class='rel_content'>
+      <text>需求内容</text>
+      <view class='name_right'>
+        <view class='name_img'>
+          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+        </view>
+        <view class='rongyu'>60</view>
+      </view>
+    </view>
+    <view class='rel_text'>最近想去马尔代夫旅游 ，有没有想一起去的</view>
+    <view class='rel_info'>
+      <text>需求人数</text>
+      <text class='rel_info_r'>1人</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求类型</text>
+      <text class='rel_info_r'>聊天</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求地点</text>
+      <text class='rel_info_r'>天津市西青区桂园路22号</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布时间</text>
+      <text class='rel_info_r'>2018-08-23 10:23</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布状态</text>
+      <text class='rel_info_r rel_invited'>正在审核</text>
+    </view>
+  </view>

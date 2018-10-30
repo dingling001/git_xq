@@ -1,23 +1,40 @@
 // pages/my/my_account/my_account.js
+var network = require("../../../utils/network.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    cash_show: false
+    cash_show: false,
+    cash:''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+getCash(){
+  var that = this;
+  wx.getStorage({
+    key: 'token',
+    success: (res_token) => {
+      network.POST({
+        url: 'index/myAccount',
+        header: 'application/x-www - form - urlencoded',
+        params: {
+          token: res_token.data,
+        },
+        success(res) {
+          console.log(res);
+          if (res.data.code == 1) {
+          that.setData({
+            cash:res.data.data
+          })
+          } else {
+            console.log(res);
+          }
+        }
+      })
+    },
+  })
+},
+ 
   onLoad: function(options) {
-
+this.getCash()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function() {
 
   },

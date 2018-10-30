@@ -276,9 +276,3 @@ color: #ff9dc6;
   background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
 }
-.nodata{
-  text-align: center;
-  font-size: 28rpx;
-  padding: 30rpx 0;
-  color: #ccc;
-}

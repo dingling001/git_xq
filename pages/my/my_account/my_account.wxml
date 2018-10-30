@@ -4,7 +4,7 @@
     <text>余额（元）</text>
     <view class='account_btn'>明细</view>
   </view>
-  <text>00.00</text>
+  <text>{{cash}}</text>
 </view>
 <view class='account_sub' bindtap='cash_fun'>我要提现</view>
 <view class='account_mold' wx:if='{{cash_show}}'>

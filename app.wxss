@@ -1208,7 +1208,12 @@ image{
   color: #09bb07;
   white-space: nowrap;
 }
-
+.nodata{
+  text-align: center;
+  font-size: 28rpx;
+  padding: 30rpx 0;
+  color: #ccc;
+}
 @font-face {font-family: "iconfont";
   src: url('//at.alicdn.com/t/font_825485_wrz1wms3xpl.eot?t=1539745754583'); /* IE9*/
   src: url('//at.alicdn.com/t/font_825485_wrz1wms3xpl.eot?t=1539745754583#iefix') format('embedded-opentype'), /* IE6-IE8 */
