@@ -31,7 +31,7 @@ Page({
             console.log(res);
             if (res.data.code == 1) {
               that.setData({
-                myrelyList: res.data.data.data
+                myrelyList: res.data.data
               })
             } else {
               console.log(res);
