@@ -1,66 +1,130 @@
 // pages/release/rel_pay/rel_pay.js
+var network = require("../../../utils/network.js");
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    order_sn: "",
+    orderInfo: []
+  },
+  // 获取详情
+  getorderinfo() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'api/getReqDetail',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+            // order_sn:that.data.order_sn
+            order_sn: "R154111411560494200"
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+              that.setData({
+                orderInfo: res.data.data
+              })
+            } else {
+              console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
+  // 订单支付
+  pay_order() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'pay/pay',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+            // order_sn:that.data.order_sn
+            order_sn: "R154111411560494200"
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+              wx.requestPayment({
+                timeStamp: res.data.data.timestamp,
+                nonceStr: res.data.data.nonce_str,
+                package: res.data.data.prepay_id,
+                signType: res.data.data.sign,
+                paySign: res.data.data.paySign,
+                success(res_pay) {
+                  console.log(res_pay)
+                },
+                fail(res_fail) {
+                  console.log(res_fail)
+                }
+              })
+            } else {
+              console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
+  onLoad: function(options) {
+    console.log(options)
+    if (options.order_sn) {
+      this.setData({
+        order_sn: options.order_sn
+      })
+    }
+    this.getorderinfo()
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

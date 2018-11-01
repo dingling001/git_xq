@@ -190,6 +190,9 @@ Page({
                   console.log(res)
                   wx.showToast({
                     title: '发布成功',
+                  });
+                  wx.navigateTo({
+                    url: '../rel_pay/rel_pay?order_sn=' + res.data.data.order_sn,
                   })
                 } else {
                   wx.showToast({
@@ -362,6 +365,7 @@ Page({
       fail: function(res) {
         wx.showToast({
           title: '图片加载失败',
+          icon:'none'
         })
       }
     })

@@ -75,6 +75,26 @@
   justify-content: flex-end;
   border: 0;
 }
-.status:active{
-  opacity: 0.7
+
+.status:active {
+  opacity: 0.7;
+}
+
+.pay_btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 17rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+}
+.agree_box{
+  font-size: 24rpx;
+  color: #222222;
 }

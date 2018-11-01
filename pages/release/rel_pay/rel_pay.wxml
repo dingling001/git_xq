@@ -9,25 +9,34 @@
         <view class='rongyu'>60</view>
       </view>
     </view>
-    <view class='rel_text'>最近想去马尔代夫旅游 ，有没有想一起去的</view>
+    <view class='rel_text'>{{orderInfo.content}}</view>
     <view class='rel_info'>
       <text>需求人数</text>
-      <text class='rel_info_r'>1人</text>
+      <text class='rel_info_r'>{{orderInfo.num}}人</text>
     </view>
     <view class='rel_info'>
       <text>需求类型</text>
-      <text class='rel_info_r'>聊天</text>
+      <text class='rel_info_r'>{{orderInfo.cate_name}}</text>
     </view>
     <view class='rel_info'>
       <text>需求地点</text>
-      <text class='rel_info_r'>天津市西青区桂园路22号</text>
+      <text class='rel_info_r'>{{orderInfo.address}}</text>
     </view>
     <view class='rel_info'>
-      <text>发布时间</text>
-      <text class='rel_info_r'>2018-08-23 10:23</text>
+      <text>发布费用</text>
+      <text class='rel_info_r'>{{orderInfo.order_price}}</text>
     </view>
     <view class='rel_info'>
-      <text>发布状态</text>
-      <text class='rel_info_r rel_invited'>正在审核</text>
+      <text>服务费用</text>
+      <text class='rel_info_r rel_invited'>{{orderInfo.fee}}</text>
+    </view>
+    <view class='rel_info'>
+      <text>共计</text>
+      <text class='rel_info_r rel_invited'>{{orderInfo.real_price}}</text>
     </view>
   </view>
+  <view class='agree_box'>
+  <view class='iconfont '></view>
+  <view>我已同意用户使用协议</view>
+  </view>
+  <view class='pay_btn' bindtap='pay_order'>确认支付</view>
