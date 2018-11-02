@@ -60,10 +60,14 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.rel_info:last-child{
+  border: 0
+}
 .rel_info_r {
   font-size: 26rpx;
   color: #666;
+  flex: 1;
+  text-align: right;
 }
 
 .name_right {
@@ -102,7 +106,6 @@
 
 .status {
   justify-content: flex-end;
-  border: 0;
 }
 .status:active{
   opacity: 0.7

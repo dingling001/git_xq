@@ -21,7 +21,7 @@ Page({
             order_sn: "R154111411560494200"
           },
           success(res) {
-            console.log(res);
+            // console.log(res);
             if (res.data.code == 1) {
               that.setData({
                 orderInfo: res.data.data
@@ -54,18 +54,25 @@ Page({
               wx.requestPayment({
                 timeStamp: res.data.data.timestamp,
                 nonceStr: res.data.data.nonce_str,
-                package: res.data.data.prepay_id,
-                signType: res.data.data.sign,
+                package: 'prepay_id=' + res.data.data.prepay_id,
+                signType: 'MD5',
                 paySign: res.data.data.paySign,
                 success(res_pay) {
                   console.log(res_pay)
                 },
                 fail(res_fail) {
-                  console.log(res_fail)
+                  console.log(res_fail);
+                  wx.showToast({
+                    title: '取消支付',
+                    icon: 'none'
+                  })
                 }
               })
             } else {
-              console.log(res);
+              wx.showToast({
+                title: res.data.data,
+                icon:'none'
+              })
             }
           }
         })

@@ -1,6 +1,5 @@
 {
   "pages": [
-      "pages/release/rel_pay/rel_pay",
     "pages/start/start",
     "pages/index/index",
     "pages/release/release/release",
@@ -18,8 +17,8 @@
     "pages/my/my_invitation/my_invitation",
     "pages/my/my_auth/my_auth",
     "pages/release/rel_cate/rel_cate",
-    "pages/index/prize/prize"
- 
+    "pages/index/prize/prize",
+    "pages/release/rel_pay/rel_pay"
   ],
   "window": {
     "backgroundTextStyle": "light",

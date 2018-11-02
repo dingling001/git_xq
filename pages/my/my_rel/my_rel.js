@@ -1,9 +1,10 @@
 // pages/my/my_rel/my_rel.js
 var network = require("../../../utils/network.js");
+var util = require("../../../utils/util.js")
 Page({
   data: {
     tab: 0,
-    page: 0,
+    page: 1,
     perpage: 10,
     myrelyList: []
   },
@@ -30,8 +31,12 @@ Page({
           success(res) {
             console.log(res);
             if (res.data.code == 1) {
+              var list = res.data.data.list;
+              for (var i in list) {
+                list[i].create_time = util.formatDate(new Date(list[i].create_time * 1000), 'yyyy-MM-dd hh:mm:ss');
+              }
               that.setData({
-                myrelyList: res.data.data.list
+                myrelyList: list
               })
             } else {
               console.log(res);

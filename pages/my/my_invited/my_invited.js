@@ -4,7 +4,7 @@ Page({
 
 
   data: {
-    page:0,
+    page:1,
     perpage:10,
     myApplyList:[]
   },
