@@ -78,98 +78,44 @@
 </scroll-view>
 <scroll-view wx:else>
   <view class='index_box'>
-    <view class='index_item'>
-      <view class='index_item_top'>
-        <view class='index_item_img'>
-          <image mode='widthFix' src='../assets/imgs/good1.png'></image>
-        </view>
-        <view class='index_info'>
-          <view class='index_name'>
-            <text>牛牛</text>
-            <view class='name_right'>
-              <view class='name_img'>
-                <image src='../assets/imgs/rongyu.svg' mode=''></image>
-              </view>
-              <text>100</text>
-            </view>
+    <view class='nodata' wx:if='{{get_wlist.length==0}}'>暂无需求</view>
+    <block wx:else>
+      <view class='index_item' wx:for='{{get_wlist}}' wx:for-item='item' wx:key='{{item.id}}'>
+        <view class='index_item_top'>
+          <view class='index_item_img'>
+            <image mode='widthFix' src='{{item.avatar}}'></image>
           </view>
-          <view class='index_time'>2018-08-20 12:25</view>
-        </view>
-      </view>
-      <view class='index_title'>电脑上门维修，需要3个人</view>
-      <view class='index_content'>上门给我家电脑加内存条8G的 越快越好上门给我家电脑加内存条8G的上门给我家电脑加内存条8G的上门给我家电脑加内存条8G的</view>
-      <view class='index_btns'>
-        <view class='address'>
-          <view class='iconfont icon-location'></view>
-          <text>廊坊市距离23km</text>
-        </view>
-        <view class='btns'>
-          <button open-type='share' class='button linear'>分享</button>
-          <view class='button linear'>应邀</view>
-        </view>
-      </view>
-    </view>
-    <view class='index_item'>
-      <view class='index_item_top'>
-        <view class='index_item_img'>
-          <image mode='widthFix' src='../assets/imgs/good1.png'></image>
-        </view>
-        <view class='index_info'>
-          <view class='index_name'>
-            <text>妞妞扭牛牛</text>
-            <view class='name_right'>
-              <view class='name_img'>
-                <image src='../assets/imgs/rongyu.svg' mode=''></image>
+          <view class='index_info'>
+            <view class='index_name'>
+              <text class='iconfont {{item.gender==1?"icon-xingbie2":"icon-xingbie1"}}'></text>
+              <text>{{item.nickname}}</text>
+              <view class='name_right'>
+                <view class='name_img'>
+                  <image src='../assets/imgs/rongyu.svg' mode='widthFix'></image>
+                </view>
+                <text>{{item.credit}}</text>
               </view>
-              <text>100</text>
-            </view>
-          </view>
-          <view class='index_time'>2018-08-20 12:25</view>
-        </view>
-      </view>
-      <view class='index_title'>电脑上门维修，需要3个人</view>
-      <view class='index_content'>上门给我家电脑加内存条8G的 越快越好上门给我家电脑加内存条8G的上门给我家电脑加内存条8G的上门给我家电脑加内存条8G的</view>
-      <view class='index_btns'>
-        <view class='address'>
-          <view class='iconfont icon-location'></view>
-          <text>廊坊市距离23km</text>
-        </view>
-        <view class='btns'>
-          <button open-type='share' class='button linear'>分享</button>
-          <view class='button linear'>应邀</view>
-        </view>
-      </view>
-    </view>
-    <view class='index_item'>
-      <view class='index_item_top'>
-        <view class='index_item_img'>
-          <image mode='widthFix' src='../assets/imgs/good1.png'></image>
-        </view>
-        <view class='index_info'>
-          <view class='index_name'>
-            <text>妞妞扭牛牛</text>
-            <view class='name_right'>
-              <view class='name_img'>
-                <image src='../assets/imgs/rongyu.svg' mode=''></image>
+              <view class='name_img name_imgs' wx:if='{{item.vip==1}}'>
+                <image src='../assets/imgs/vip.svg' mode='widthFix'></image>
               </view>
-              <text>100</text>
             </view>
+            <view class='index_time'>{{item.create_time}}</view>
           </view>
-          <view class='index_time'>2018-08-20 12:25</view>
+        </view>
+        <view class='index_title'>{{item.title}}</view>
+        <view class='index_content'>{{item.content}}</view>
+        <view class='index_btns'>
+          <view class='address'>
+            <view class='iconfont icon-location'></view>
+            <!-- <text>{{item.city}}距离 {{item.juli}}km</text> -->
+            <text>{{item.city}}</text>
+          </view>
+          <view class='btns'>
+            <button open-type='share' class='button linear'>分享</button>
+            <view class='button linear'>应邀</view>
+          </view>
         </view>
       </view>
-      <view class='index_title'>电脑上门维修，需要3个人</view>
-      <view class='index_content'>上门给我家电脑加内存条8G的 越快越好</view>
-      <view class='index_btns'>
-        <view class='address'>
-          <view class='iconfont icon-location'></view>
-          <text>廊坊市距离23km</text>
-        </view>
-        <view class='btns'>
-          <button open-type='share' class='button linear'>分享</button>
-          <view class='button linear'>应邀</view>
-        </view>
-      </view>
-    </view>
+    </block>
   </view>
 </scroll-view>

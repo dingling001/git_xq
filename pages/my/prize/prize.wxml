@@ -1,64 +1,35 @@
 <!--pages/my/prize/prize.wxml-->
 
 <view class='prize_list'>
-  <view class='prize_item' bindtap='go_prize_detail'>
-    <view class='prize_order_num'>
-      <text>订单号：12585224562</text>
-      <text class='prize_status'>进行中</text>
-    </view>
-    <view class='prize_good'>
-      <view class='prize_img'>
-        <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+  <view class='nodata' wx:if='{{prize_list.length==0}}'>暂无中奖纪录</view>
+  <block wx:else>
+    <view class='prize_item' bindtap='go_prize_detail' wx:for='{{prize_list}}' wx:for-item='item'>
+      <view class='prize_order_num'>
+        <text>订单号：{{item.order_sn}}</text>
+        <block>
+          <text class='prize_status' wx:if='{{item.status==1}}'>进行中</text>
+          <text class='prize_status' wx:elif='{{item.status==2}}'>停止</text>
+          <text class='prize_status' wx:elif='{{item.status==3}}'>已结束</text>
+        </block>
       </view>
-      <view class='prize_right'>
-        <view class='prize_name'>中秋月饼礼盒套装</view>
-        <view class='prize_info'>15只装</view>
-        <view class='prize_num'>数量：1</view>
+      <view class='prize_good'>
+        <!-- <view class='prize_img'>
+          <image src='{{item.cover}}' mode='widthFix'></image>
+        </view> -->
+        <view class='prize_right'>
+          <view class='prize_name'>{{item.title}}</view>
+          <view class='prize_info'>{{item.prize}}</view>
+          <view class='prize_num'>数量：1</view>
+        </view>
       </view>
-    </view>
-    <view class='prize_order_num'>
-      <text class='prize_status'>等待开奖</text>
-      <text>2018年9月25日  16:00开奖</text>
-    </view>
-  </view>
-  <view class='prize_item' bindtap='go_prize_detail'>
-    <view class='prize_order_num'>
-      <text>订单号：12585224562</text>
-      <text class='prize_status'>进行中</text>
-    </view>
-    <view class='prize_good'>
-      <view class='prize_img'>
-        <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
-      </view>
-      <view class='prize_right'>
-        <view class='prize_name'>中秋月饼礼盒套装</view>
-        <view class='prize_info'>15只装15只装15只装15只装15只装15只装15只装15只装15只装15只装15只装</view>
-        <view class='prize_num'>数量：1</view>
+      <view class='prize_order_num'>
+        <block>
+          <text class='prize_status' wx:if='{{item.win==""}}'>等待开奖</text>
+          <text class='prize_status' wx:elif='{{item.win==0}}'>未中奖</text>
+          <text class='prize_status' wx:elif='{{item.win==1}}'>已中奖</text>
+        </block>
+        <text>2018年9月25日  16:00开奖</text>
       </view>
     </view>
-    <view class='prize_order_num'>
-      <text class='prize_status'>等待开奖</text>
-      <text>2018年9月25日  16:00开奖</text>
-    </view>
-  </view>
-  <view class='prize_item' bindtap='go_prize_detail'>
-    <view class='prize_order_num'>
-      <text>订单号：12585224562</text>
-      <text class='prize_status'>进行中</text>
-    </view>
-    <view class='prize_good'>
-      <view class='prize_img'>
-        <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
-      </view>
-      <view class='prize_right'>
-        <view class='prize_name'>中秋月饼礼盒套装</view>
-        <view class='prize_info'>15只装</view>
-        <view class='prize_num'>数量：1</view>
-      </view>
-    </view>
-    <view class='prize_order_num'>
-      <text class='prize_status'>等待开奖</text>
-      <text>2018年9月25日  16:00开奖</text>
-    </view>
-  </view>
+  </block>
 </view>

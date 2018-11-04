@@ -1,1 +1,36 @@
 /* pages/index/prize/prize.wxss */
+
+.p_img {
+  height: 300rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.p_img image {
+  width: 100%;
+}
+
+.times_box {
+  width: 78%;
+  /* padding: 15rpx 0; */
+  text-align: center;
+  margin: 36rpx auto;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 36rpx;
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+}
+
+.times_box text {
+  font-size: 48rpx;
+}
+.prize_title{
+  font-size: 30rpx;
+  padding: 20rpx 25rpx;
+  color: #222222;
+}

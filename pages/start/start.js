@@ -47,22 +47,23 @@ Page({
                   code: res_login.code,
                 },
                 success(res) {
+                  // console.log(res)
                   if (res.data.code == 1) {
                     that.setData({
                       iv: e.detail.iv,
                       encryptedData: e.detail.encryptedData,
                       third_session: res.data.data.third_session
                     })
-                    that.userAuth()
                     wx.setStorage({
                       key: 'token',
                       data: res.data.data.third_session,
                     })
+                    that.userAuth()
                   } else if (res.data.code == 3) {
                     console.log('token失效了')
                     that.login();
                   } else {
-                    console.log(res);
+                    // console.log(res);
                     that.login();
                   }
                 }
@@ -85,6 +86,11 @@ Page({
       title: '正在启动',
       icon: 'none'
     })
+    var post={
+      token: that.data.third_session,
+      iv: that.data.iv,
+      encryptedData: that.data.encryptedData
+    }
     network.POST({
       url: 'login/userAuth',
       header: 'application/x-www - form - urlencoded',
@@ -94,7 +100,6 @@ Page({
         encryptedData: that.data.encryptedData
       },
       success(res) {
-        // console.log(res);
         if (res.data.code == 1) {
           wx.switchTab({
             url: '../index/index',

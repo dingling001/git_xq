@@ -23,6 +23,7 @@ page {
   justify-content: center;
   margin-right: 10rpx;
   position: relative;
+  overflow: hidden;
 }
 
 .my_top .my_img::before {

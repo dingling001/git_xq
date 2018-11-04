@@ -19,16 +19,22 @@ Page({
     show_mold: false,
     show_community: true,
     page: 1,
+    page1: 1,
     perpage: 10,
+    perpage1: 10,
     get_rlist: [],
+    get_wlist: [],
     city_status: 0,
-    county_status: 0
+    county_status: 0,
+    gender: '',
+    gender1: ''
   },
   onLoad: function(options) {
     // console.log(options)
     this.slideShow();
     this.getcity();
     this.getcitylist();
+    this.getWorldList();
   },
   onShow: function() {
     this.getcity();
@@ -47,7 +53,7 @@ Page({
             token: res_token.data,
           },
           success(res) {
-         
+
             var slidelist = res.data.data;
             if (res.data.code == 1) {
               for (var i in slidelist) {
@@ -164,6 +170,7 @@ Page({
     this.setData({
       show_community: false
     })
+    this.getWorldList();
   },
   getcitylist() {
     wx.getStorage({
@@ -188,12 +195,12 @@ Page({
       },
     })
   },
-  // 获取需求列表
+  // 获取社区列表
   getRlist() {
     var that = this;
     that.setData({
-      city_status: 0,
-      county_status: 0
+      city_status: 1,
+      county_status: 1
     })
     wx.showLoading({
       title: '正在加载',
@@ -211,7 +218,8 @@ Page({
             city: that.data.city_status,
             county: that.data.county_status,
             lon: that.data.lon,
-            lat: that.data.lat
+            lat: that.data.lat,
+            gender: that.data.gender,
           },
           success(res) {
             // console.log(res);
@@ -233,10 +241,60 @@ Page({
       },
     })
   },
-  // 跳转抽奖
-  go_prize(){
-    wx.navigateTo({
-      url: '../index/prize/prize',
+  // 获取世界列表
+  getWorldList() {
+    var that = this;
+    that.setData({
+      city_status: 0,
+      county_status: 0,
     })
+    wx.showLoading({
+      title: '正在加载',
+    })
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'api/getWorldRlist',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+            page: that.data.page1,
+            perpage: that.data.perpage1,
+            gender: that.data.gender1,
+            city: that.data.city_status,
+            county: that.data.county_status,
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+              var list = res.data.data.list;
+              for (var i in list) {
+                list[i].create_time = util.formatDate(new Date(list[i].create_time * 1000), 'yyyy-MM-dd hh:mm:ss');
+                list[i].juli = parseFloat(list[i].juli).toFixed(2)
+              }
+              that.setData({
+                get_wlist: list
+              })
+              wx.hideLoading()
+            } else {
+              console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
+  // 跳转抽奖
+  go_prize(e) {
+    console.log(e)
+    var url = e.currentTarget.dataset.url;
+    if (url) {
+      wx.navigateTo({
+        url: '../index/prize/prize',
+      })
+    } else {
+      console.log(url);
+    }
   }
 })

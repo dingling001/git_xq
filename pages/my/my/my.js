@@ -1,12 +1,12 @@
 // pages/my/my.js
 var network = require("../../../utils/network.js");
-var app=getApp();
+var app = getApp();
 Page({
   data: {
     avatarUrl: '',
     nickName: '',
     auth_status: 0,
-    user_info:[]
+    user_info: []
   },
   onLoad: function(options) {
     this.getMyinfo();
@@ -50,15 +50,20 @@ Page({
   },
   // 实名认证
   go_auth() {
-    var auth_status = this.data.auth_status;
+    var auth_status = this.data.user_info.status;
+    console.log(auth_status)
     switch (auth_status) {
       case 0:
+        wx.navigateTo({
+          url: '../auth/auth?auth_status=' + auth_status,
+        })
+        break;
+      case 1:
         wx.navigateTo({
           url: '../my_auth/my_auth?auth_status=' + auth_status,
         });
         break;
-      case 1:
-        break;
+
     }
 
   },

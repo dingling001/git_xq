@@ -1,2 +1,6 @@
 <!--pages/index/prize/prize.wxml-->
-<text>pages/index/prize/prize.wxml</text>
+<view class='p_img'>
+  <image src='../../assets/imgs/banner.jpg' mode='widthFix'></image>
+</view>
+<view class='times_box'>您有<text>{{times}}</text>次刮奖机会</view>
+<view class='prize_title'>每日礼物</view>
