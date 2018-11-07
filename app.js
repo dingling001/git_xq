@@ -17,6 +17,7 @@ App({
     cate_info:{
       cate_name:'',
       cate_id:''
-    }
+    },
+    world_index:1
   }
 })

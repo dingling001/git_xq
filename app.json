@@ -18,7 +18,8 @@
     "pages/my/my_auth/my_auth",
     "pages/release/rel_cate/rel_cate",
     "pages/index/prize/prize",
-    "pages/release/rel_pay/rel_pay"
+    "pages/release/rel_pay/rel_pay",
+    "pages/release/rel_world/rel_world"
   ],
   "window": {
     "backgroundTextStyle": "light",

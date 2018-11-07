@@ -34,7 +34,9 @@ Page({
     times: [],
     tindex: 0,
     temp: 0,
-    token: ''
+    token: '',
+    world: ['', '社群', '世界'],
+    world_index: 1
   },
   // 获取费率
   getSettings() {
@@ -94,17 +96,17 @@ Page({
       tindex: e.detail.value
     })
   },
-  end_date_fun(e) {
-    this.setData({
-      showdate: false
-    })
-    console.log(e)
-  },
-  end_time_fun(e) {
-    this.setData({
-      showdate: true
-    })
-  },
+  // end_date_fun(e) {
+  //   this.setData({
+  //     showdate: false
+  //   })
+  //   console.log(e)
+  // },
+  // end_time_fun(e) {
+  //   this.setData({
+  //     showdate: true
+  //   })
+  // },
   // 发布需求
   release_fun(e) {
     var that = this;
@@ -176,7 +178,8 @@ Page({
             end_time: util.formatTime(new Date(), 3, parseInt(that.data.tindex) + parseInt(1)),
             deadline: that.data.dateTimeArray[0][that.data.dateTime[0]] + '-' + that.data.dateTimeArray[1][that.data.dateTime[1]] + '-' + that.data.dateTimeArray[2][that.data.dateTime[2]] + ' ' + that.data.dateTimeArray[3][that.data.dateTime[3]] + ':' + that.data.dateTimeArray[4][that.data.dateTime[4]],
             formid: e.detail.formId,
-            image: that.data.images
+            image: that.data.images,
+            world: that.data.world_index
           };
           if (res.confirm == true) {
             console.log(post)
@@ -264,12 +267,14 @@ Page({
   },
 
   onShow: function() {
-    // this.ifrealnameAuth();
+    this.ifrealnameAuth();
     var cate_name = app.globalData.cate_info.cate_name;
     var cate_id = app.globalData.cate_info.cate_id;
+    var world_index = app.globalData.world_index;
     this.setData({
       cate_name: cate_name,
       cate_id: cate_id,
+      world_index: world_index
     })
     // console.log(cate_name)
   },
@@ -365,7 +370,7 @@ Page({
       fail: function(res) {
         wx.showToast({
           title: '图片加载失败',
-          icon:'none'
+          icon: 'none'
         })
       }
     })
