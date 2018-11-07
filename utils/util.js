@@ -26,11 +26,11 @@ function padLeftZero(str) {
   return ('00' + str).substr(str.length);
 }
 const formatTime = (date, type, num) => {
-  var  year = date.getFullYear()
-  var  month = date.getMonth() + 1
-  var  day = date.getDate()
-  var  hour = date.getHours()
-  var  minute = date.getMinutes()
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
 
   if (type == 1) {
     return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
@@ -38,24 +38,28 @@ const formatTime = (date, type, num) => {
     return [year, month, day].map(formatNumber).join('-')
   } else if (type == 3) {
     if (num % 24 == 1) {
+      console.log('num=1')
       day = day + 1;
       num = 0;
-    } else if (num%24 == 2) {
+
+    } else if (num % 24 == 2) {
+      console.log('num=2')
       day = day + 2;
       num = 0;
+    } else if ((parseInt(hour) + parseInt(num)) / 24 >= 1 && (parseInt(hour) + parseInt(num)) / 24 < 2) {
+      console.log('2>num>1')
+      day = day + 1;
+      num = (parseInt(hour) + parseInt(num)) % 24;
+      return [year, month, day].map(formatNumber).join('-') + ' ' + [num, minute].map(formatNumber).join(':')
+    } else if ((parseInt(hour) + parseInt(num)) / 24 >= 2) {
+      console.log('num>2')
+      day = day + 2;
+      num = (parseInt(hour) + parseInt(num)) % 24;
+      return [year, month, day].map(formatNumber).join('-') + ' ' + [num, minute].map(formatNumber).join(':')
     } else {
-      num = num % 24
-      if ((parseInt(hour) + parseInt(num))%24>=1){
-        day=day+1;
-        num = (parseInt(hour) + parseInt(num))%24;
-      } else if ((parseInt(hour) + parseInt(num))%24>=2){
-        day = day + 2;
-        num = (parseInt(hour) + parseInt(num)) % 24;
-      }else{
-
-      }
+      return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
     }
-    return [year, month, day].map(formatNumber).join('-') + ' ' + [parseInt(hour) + parseInt(num), minute].map(formatNumber).join(':')
+
   }
 }
 

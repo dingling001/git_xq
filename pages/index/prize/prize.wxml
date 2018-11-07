@@ -1,6 +1,25 @@
 <!--pages/index/prize/prize.wxml-->
 <view class='p_img'>
-  <image src='../../assets/imgs/banner.jpg' mode='widthFix'></image>
+  <image src='{{banner}}' mode='widthFix'></image>
 </view>
-<view class='times_box'>您有<text>{{times}}</text>次刮奖机会</view>
+<view class='times_box'>您有
+  <text>{{times}}</text>次刮奖机会</view>
 <view class='prize_title'>每日礼物</view>
+<view class='prize_list'>
+  <view class='nodata' wx:if='{{list.length==0}}'>暂无活动</view>
+  <block wx:else>
+    <form class='prize_item' wx:for='{{list}}' wx:key='{{item.id}}'  data-id='{{item.id}}' report-submit='true' bindsubmit="pize_fun">
+      <image src='{{item.cover}}' catchtap='godetial' data-id='{{item.id}}'></image>
+      <view class='btn' wx:if='{{item.join==1}}'>
+        <view>正在</view>
+        <view>进行</view>
+      </view>
+      <view  wx:else>
+        <button class='btn'  formType="submit">
+          <view>点击</view>
+          <view>抽奖</view>
+        </button>
+      </view>
+    </form>
+  </block>
+</view>

@@ -289,9 +289,10 @@ Page({
   go_prize(e) {
     console.log(e)
     var url = e.currentTarget.dataset.url;
+    var pic = e.currentTarget.dataset.pic;
     if (url) {
       wx.navigateTo({
-        url: '../index/prize/prize',
+        url: '../index/prize/prize?pic='+pic,
       })
     } else {
       console.log(url);

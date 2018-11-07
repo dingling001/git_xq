@@ -21,7 +21,7 @@
 </view>
 <view class='swiper_box'>
   <swiper autoplay="true" interval='3000' indicator-dots indicator-color='#fff' indicator-active-color='#FD4336'>
-    <swiper-item wx:for='{{slide_list}}' bindtap='go_prize' data-url='{{item.url}}' wx:key='{{item.pic}}'>
+    <swiper-item wx:for='{{slide_list}}' bindtap='go_prize' data-url='{{item.url}}' wx:key='{{item.pic}}' data-pic='{{item.pic}}'>
       <image src="{{item.pic}}" mode='widthFix' />
     </swiper-item>
   </swiper>

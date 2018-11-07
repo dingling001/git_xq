@@ -17,8 +17,8 @@ Page({
           header: 'application/x-www - form - urlencoded',
           params: {
             token: res_token.data,
-            // order_sn:that.data.order_sn
-            order_sn: "R154111411560494200"
+            order_sn: that.data.order_sn
+            // order_sn: "R154111411560494200"
           },
           success(res) {
             // console.log(res);
@@ -45,8 +45,8 @@ Page({
           header: 'application/x-www - form - urlencoded',
           params: {
             token: res_token.data,
-            // order_sn:that.data.order_sn
-            order_sn: "R154111411560494200"
+            order_sn: that.data.order_sn
+            // order_sn: "R154111411560494200"
           },
           success(res) {
             console.log(res);
@@ -58,7 +58,26 @@ Page({
                 signType: 'MD5',
                 paySign: res.data.data.paySign,
                 success(res_pay) {
-                  console.log(res_pay)
+                  wx.showModal({
+                    title: '发布成功',
+                    content: '您的需求已发布成功',
+                    showCancel: true,
+                    cancelText: '返回首页',
+                    cancelColor: '#ccc',
+                    confirmText: '再发一个',
+                    confirmColor: '#fd4336',
+                    success(res) {
+                      if (res.confirm) {
+                        wx.switchTab({
+                          url: '../release/release',
+                        })
+                      } else if (res.cancel) {
+                        wx.switchTab({
+                          url: '../../index/index',
+                        })
+                      }
+                    }
+                  })
                 },
                 fail(res_fail) {
                   console.log(res_fail);
@@ -71,7 +90,7 @@ Page({
             } else {
               wx.showToast({
                 title: res.data.data,
-                icon:'none'
+                icon: 'none'
               })
             }
           }

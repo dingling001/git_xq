@@ -194,12 +194,13 @@ Page({
                   wx.showToast({
                     title: '发布成功',
                   });
-                  wx.navigateTo({
+                  wx.redirectTo({
                     url: '../rel_pay/rel_pay?order_sn=' + res.data.data.order_sn,
                   })
                 } else {
+          
                   wx.showToast({
-                    title: res.message,
+                    title: res.data.message,
                     icon: 'none',
                     duration: 1500
                   })

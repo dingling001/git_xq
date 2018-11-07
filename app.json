@@ -19,7 +19,9 @@
     "pages/release/rel_cate/rel_cate",
     "pages/index/prize/prize",
     "pages/release/rel_pay/rel_pay",
-    "pages/release/rel_world/rel_world"
+    "pages/release/rel_world/rel_world",
+    "pages/index/pize_suc/pize_suc",
+    "pages/index/prize_detail/prize_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
