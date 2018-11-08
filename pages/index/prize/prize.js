@@ -1,21 +1,22 @@
 // pages/index/prize/prize.js
 var network = require("../../../utils/network.js");
-var util = require("../../../utils/util.js")
+var util = require("../../../utils/util.js");
 Page({
   data: {
     times: 0,
-    list: [{
-        "id": 8,
-        "title": "花里胡哨的月饼(三)",
-        "cover": "../../assets/imgs/banner.jpg",
-        "join": 0
-      },
-      {
-        "id": 7,
-        "title": "花里胡哨的月饼(二)1",
-        "cover": "../../assets/imgs/banner.jpg",
-        "join": 1
-      },
+    list: [
+      // {
+      //     "id": 8,
+      //     "title": "花里胡哨的月饼(三)",
+      //     "cover": "../../assets/imgs/banner.jpg",
+      //     "join": 0
+      //   },
+      //   {
+      //     "id": 7,
+      //     "title": "花里胡哨的月饼(二)1",
+      //     "cover": "../../assets/imgs/banner.jpg",
+      //     "join": 1
+      //   },
     ],
     banner: '',
     auth_status: false
@@ -28,7 +29,8 @@ Page({
         banner: options.pic
       })
     }
-    // this.getlist();
+    this.getlist();
+    this.getMyinfo()
   },
 
   //  获取抽奖列表
@@ -66,7 +68,7 @@ Page({
     let id = e.target.dataset.id;
     console.log(e)
     wx.navigateTo({
-      url: '../prize_detail/prize_detail?prize_id='+id,
+      url: '../prize_detail/prize_detail?prize_id=' + id,
     })
   },
   // 抽奖
@@ -146,6 +148,32 @@ Page({
               wx.navigateTo({
                 url: '../../my/auth/auth',
               })
+            }
+          }
+        })
+      },
+    })
+  },
+  // 获取个人信息
+  getMyinfo() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'index/getMyinfo',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+              that.setData({
+                times: res.data.data.times
+              })
+            } else {
+              console.log(res);
             }
           }
         })

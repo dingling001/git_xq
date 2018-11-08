@@ -37,29 +37,18 @@ const formatTime = (date, type, num) => {
   } else if (type == 0) {
     return [year, month, day].map(formatNumber).join('-')
   } else if (type == 3) {
-    if (num % 24 == 1) {
-      console.log('num=1')
-      day = day + 1;
-      num = 0;
-
-    } else if (num % 24 == 2) {
-      console.log('num=2')
-      day = day + 2;
-      num = 0;
-    } else if ((parseInt(hour) + parseInt(num)) / 24 >= 1 && (parseInt(hour) + parseInt(num)) / 24 < 2) {
-      console.log('2>num>1')
-      day = day + 1;
-      num = (parseInt(hour) + parseInt(num)) % 24;
-      return [year, month, day].map(formatNumber).join('-') + ' ' + [num, minute].map(formatNumber).join(':')
-    } else if ((parseInt(hour) + parseInt(num)) / 24 >= 2) {
-      console.log('num>2')
-      day = day + 2;
-      num = (parseInt(hour) + parseInt(num)) % 24;
-      return [year, month, day].map(formatNumber).join('-') + ' ' + [num, minute].map(formatNumber).join(':')
-    } else {
-      return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
+    num = parseInt(num)+1
+    console.log(num)
+    console.log(num + hour)
+    if (num + hour==24){
+      hour=0
+      day=day+1
+      console.log(hour)
     }
-
+    else if(num+hour<24){
+      hour=num+hour
+    }
+    return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
   }
 }
 

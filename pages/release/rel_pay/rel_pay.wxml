@@ -1,42 +1,42 @@
 <!--pages/release/rel_pay/rel_pay.wxml-->
-  <view class='rel_item'>
-    <view class='rel_content'>
-      <text>需求内容</text>
-      <view class='name_right'>
-        <view class='name_img'>
-          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
-        </view>
-        <view class='rongyu'>60</view>
+<view class='rel_item'>
+  <view class='rel_content'>
+    <text>需求内容</text>
+    <view class='name_right'>
+      <view class='name_img'>
+        <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
       </view>
-    </view>
-    <view class='rel_text'>{{orderInfo.content}}</view>
-    <view class='rel_info'>
-      <text>需求人数</text>
-      <text class='rel_info_r'>{{orderInfo.num}}人</text>
-    </view>
-    <view class='rel_info'>
-      <text>需求类型</text>
-      <text class='rel_info_r'>{{orderInfo.cate_name}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>需求地点</text>
-      <text class='rel_info_r'>{{orderInfo.address}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>发布费用</text>
-      <text class='rel_info_r'>{{orderInfo.order_price}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>服务费用</text>
-      <text class='rel_info_r rel_invited'>{{orderInfo.fee}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>共计</text>
-      <text class='rel_info_r rel_invited'>{{orderInfo.real_price}}</text>
+      <view class='rongyu'>{{orderInfo.credit}}</view>
     </view>
   </view>
-  <view class='agree_box'>
-  <view class='iconfont '></view>
+  <view class='rel_text'>{{orderInfo.content}}</view>
+  <view class='rel_info'>
+    <text>需求人数</text>
+    <text class='rel_info_r'>{{orderInfo.num}}人</text>
+  </view>
+  <view class='rel_info'>
+    <text>需求类型</text>
+    <text class='rel_info_r'>{{orderInfo.cate_name}}</text>
+  </view>
+  <view class='rel_info'>
+    <text>需求地点</text>
+    <text class='rel_info_r'>{{orderInfo.address}}</text>
+  </view>
+  <view class='rel_info'>
+    <text>发布费用</text>
+    <text class='rel_info_r'>{{orderInfo.order_price}}</text>
+  </view>
+  <view class='rel_info'>
+    <text>服务费用</text>
+    <text class='rel_info_r rel_invited'>{{orderInfo.fee}}</text>
+  </view>
+  <view class='rel_info'>
+    <text>共计</text>
+    <text class='rel_info_r rel_invited'>{{orderInfo.real_price}}</text>
+  </view>
+</view>
+<view class='agree_box'>
+  <view class='iconfont icon-tongyi {{agree?"color":""}}'></view>
   <view>我已同意用户使用协议</view>
-  </view>
-  <view class='pay_btn' bindtap='pay_order'>确认支付</view>
+</view>
+<view class='pay_btn' bindtap='pay_order'>确认支付</view>
