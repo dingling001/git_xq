@@ -1,0 +1,39 @@
+<!--pages/index/prize_detail/prize_detail.wxml-->
+<view>
+  开奖时间：2018年9月25日 16:00
+</view>
+<view>
+  <image src='' mode='widthFix'></image>
+</view>
+<view>中秋礼盒套装</view>
+<view class='rel_item'>
+  <text>奖品规则：</text>
+  <view class='picker_box'>
+    <view>
+      定时开奖
+    </view>
+  </view>
+</view>
+<view class='rel_item'>
+  <text>奖品状态：</text>
+  <view class='picker_box'>
+    <view>
+      待开奖
+    </view>
+  </view>
+</view>
+<view class='rel_item'>
+  <text>开奖时间：</text>
+  <view class='picker_box'>
+    <view>
+      2018-09-25  16:00
+    </view>
+  </view>
+</view>
+    <view class='rel_item'>
+      <text>查看抽奖情况</text>
+      <view class='picker_box' bindtap='choose_address'>
+        <view>{{address}}</view>
+        <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+      </view>
+    </view>

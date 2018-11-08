@@ -1,0 +1,19 @@
+/* pages/index/prize_detail/prize_detail.wxss */
+
+.rel_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #222;
+  border-top: 1px solid #f3f5f7;
+  padding: 34rpx 25rpx 34rpx 45rpx;
+  background-color: #fff;
+}
+.picker_box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  margin-left: 10rpx;
+}
