@@ -1,0 +1,29 @@
+/* pages/release/rel_world/rel_world.wxss */
+.world_t{
+  padding: 28rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 23rpx;
+}
+.world_item{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #000;
+  padding: 28rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #f4f5f5;
+}
+.world_item:last-child{
+  border: 0
+}
+.icon-xuanzhong{
+  color: #999;
+  margin-right: 10rpx;
+}
+.icon-xuanzhong1{
+  color: #FD4336;
+    margin-right: 10rpx;
+}

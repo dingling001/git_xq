@@ -1,0 +1,11 @@
+<!--pages/release/rel_world/rel_world.wxml-->
+<view class='world_t'>额外信息</view>
+<view class='world_item' bindtap='tab'>
+<!-- <view class='iconfont {{tab==1?"icon-xuanzhong1":"icon-xuanzhong"}}'> -->
+<!-- </view> -->
+社群</view>
+<view class='world_item' bindtap='tab1'>
+<!-- <view class='iconfont {{tab==2?"icon-xuanzhong1":"icon-xuanzhong"}}'> -->
+<!-- </view> -->
+
+世界</view>
