@@ -1,0 +1,19 @@
+<!--pages/index/pize_suc/pize_suc.wxml-->
+<view class='p_bg'>
+  <image src='../../assets/imgs/join.png' mode='widthFix'>
+  </image>
+  <view class='p_box'>
+    <view class='join_t'>
+      <view class='rotel'>参与成功，</view>
+      <view class='roter'>等待开奖</view>
+    </view>
+    <view class='join_t date'>
+      <view class='rotel'>8月14日 </view>
+      <view class='roter'> 14:00开奖</view>
+    </view>
+    <view class='btn'>确定</view>
+    <view class='p_info'>快把iPhone 6s带回家吧！</view>
+    <view class='p_info'>大吉大利，送你好礼</view>
+    <view class='p_img'><image src='../../assets/imgs/good1.png' mode='widthFix'></image></view>
+  </view>
+</view>

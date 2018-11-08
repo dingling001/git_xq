@@ -1,0 +1,87 @@
+/* pages/index/pize_suc/pize_suc.wxss */
+
+.p_bg {
+  /* background-image: url('../../assets/imgs/join.png'); */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /* background-size: cover; */
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+   overflow: scroll;
+   background-color: #FD6F2F;
+  /* background-attachment: fixed; */
+}
+
+.p_bg image {
+  width: 100%;
+}
+
+.p_box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.join_t {
+  text-align: center;
+  font-size: 58rpx;
+  color: #fff;
+  margin: 94rpx 0 14rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotel {
+  transform: rotateZ(-6deg);
+}
+
+.roter {
+  transform: rotateZ(6deg);
+}
+
+.date {
+  margin: 0;
+}
+
+.date .roter {
+  margin-left: 30rpx;
+}
+
+.btn {
+  width: 165rpx;
+  margin: 35rpx auto;
+  font-size: 30rpx;
+  color: #ac3a20;
+  background-color: #fff2c5;
+  box-shadow: 0 5rpx 18rpx 0 rgba(253, 92, 47, 0.38);
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 15rpx 0;
+}
+
+.p_info {
+  font-size: 43rpx;
+  color: #a1220a;
+  text-align: center;
+  padding: 0 0 22rpx 0;
+  font-weight: bold;
+}
+
+.p_img {
+  width: 37%;
+  margin: 66rpx auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.p_img image{
+  width: 100%;
+}
