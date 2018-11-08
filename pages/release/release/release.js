@@ -32,11 +32,11 @@ Page({
     choose_time: '',
     timelist: [],
     times: [],
-    tindex: 0,
+    tindex: -1,
     temp: 0,
     token: '',
     world: ['', '社群', '世界'],
-    world_index: 1
+    world_index: 1,
   },
   // 获取费率
   getSettings() {
@@ -95,18 +95,11 @@ Page({
     this.setData({
       tindex: e.detail.value
     })
+    this.setData({
+      end_time: util.formatTime(new Date(), 3, parseInt(this.data.tindex))
+    })
+    console.log(this.data.end_time)
   },
-  // end_date_fun(e) {
-  //   this.setData({
-  //     showdate: false
-  //   })
-  //   console.log(e)
-  // },
-  // end_time_fun(e) {
-  //   this.setData({
-  //     showdate: true
-  //   })
-  // },
   // 发布需求
   release_fun(e) {
     var that = this;
@@ -149,9 +142,9 @@ Page({
         title: '请选择需求地点',
         icon: 'none',
       })
-    } else if (that.data.title == '') {
+    } else if (that.data.end_time == '') {
       wx.showToast({
-        title: '请输入标题',
+        title: '请选择有效时间',
         icon: 'none',
       })
     } else {
@@ -175,7 +168,7 @@ Page({
             lat: that.data.lat,
             num: that.data.num,
             cate_id: that.data.cate_id,
-            end_time: util.formatTime(new Date(), 3, parseInt(that.data.tindex) + parseInt(1)),
+            end_time: that.data.end_time,
             deadline: that.data.dateTimeArray[0][that.data.dateTime[0]] + '-' + that.data.dateTimeArray[1][that.data.dateTime[1]] + '-' + that.data.dateTimeArray[2][that.data.dateTime[2]] + ' ' + that.data.dateTimeArray[3][that.data.dateTime[3]] + ':' + that.data.dateTimeArray[4][that.data.dateTime[4]],
             formid: e.detail.formId,
             image: that.data.images,
@@ -194,7 +187,8 @@ Page({
                   wx.showToast({
                     title: '发布成功',
                   });
-                  wx.redirectTo({
+                  that.setData({})
+                  wx.navigateTo({
                     url: '../rel_pay/rel_pay?order_sn=' + res.data.data.order_sn,
                   })
                 } else {
