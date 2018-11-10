@@ -14,6 +14,12 @@
     <view class='btn'>确定</view>
     <view class='p_info'>快把iPhone 6s带回家吧！</view>
     <view class='p_info'>大吉大利，送你好礼</view>
-    <view class='p_img'><image src='../../assets/imgs/good1.png' mode='widthFix'></image></view>
+    <view class='p_img'>
+      <image src='../../assets/imgs/good1.png' mode='widthFix'></image>
+    </view>
+    <view class='btn_box'>
+      <button class='btnl' type=''>邀请好友抽奖</button>
+      <button class='btr'>参与更多抽奖</button>
+    </view>
   </view>
 </view>
