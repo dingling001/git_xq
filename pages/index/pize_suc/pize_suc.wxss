@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-items: center;
   overflow: scroll;
   background-color: #fd6f2f;
@@ -89,4 +89,17 @@
 .btn_box {
   display: flex;
   align-items: center;
+}
+.margin_iphonex{
+  margin: 209prx 0 14rpx 0;
+}
+.btnl{
+   background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  font-size: 30rpx;
+  color: #fff;
+  padding: 26rpx 36rpx;
+  line-height: unset;
 }

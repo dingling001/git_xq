@@ -192,7 +192,7 @@ Page({
                     url: '../rel_pay/rel_pay?order_sn=' + res.data.data.order_sn,
                   })
                 } else {
-          
+
                   wx.showToast({
                     title: res.data.message,
                     icon: 'none',
@@ -435,9 +435,13 @@ Page({
                 }
               })
             } else {
-              wx.navigateTo({
-                url: '../../my/auth/auth',
+              wx.showToast({
+                title: '请认证后发布需求！',
+                icon: 'none'
               })
+              // wx.navigateTo({
+              //   url: '../../my/auth/auth',
+              // })
             }
           }
         })

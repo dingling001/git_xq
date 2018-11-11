@@ -34,7 +34,7 @@
       <text>需求人数（位）</text>
       <input placeholder='填写需求人数' placeholder-class='rel_input' type='number' bindinput='num_input'></input>
     </view>
-    <navigator class='rel_item'  url='../rel_cate/rel_cate'>
+    <navigator class='rel_item' url='../rel_cate/rel_cate'>
       <text>需求类型</text>
       <view class='picker_box'>
         <text>{{cate_name}}</text>
@@ -49,12 +49,12 @@
         <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
       </view>
     </view>
-    <navigator class='rel_item'  url='../rel_world/rel_world'>
-    <text>可选信息</text>
+    <navigator class='rel_item' url='../rel_world/rel_world'>
+      <text>可选信息</text>
       <view class='picker_box'>
-       
-         <view>{{world[world_index]}}</view>
-           <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
+
+        <view>{{world[world_index]}}</view>
+        <view class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></view>
         <!-- <input placeholder='详细描述您的需求（可不填写）'></input> -->
       </view>
     </navigator>
@@ -62,7 +62,7 @@
       <text>订单有效时间</text>
       <view class='picker_box'>
         <block>
-          <picker bindchange="pickeTime" value="{{index}}" range="{{times}}">{{times[tindex]}}</picker>
+          <picker bindchange="pickeTime" value="{{index}}" range="{{times}}">{{tindex==-1?'选择有效时间':times[tindex]}}</picker>
           <!-- <picker mode='date' bindchange='end_date_fun' start='{{start_time}}' wx:if='{{showdate}}'> 选择日期</picker> -->
           <!-- <picker mode='time' wx:else bindchange='end_time_fun'>选择时间</picker> -->
         </block>

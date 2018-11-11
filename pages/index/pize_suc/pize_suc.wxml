@@ -3,7 +3,7 @@
   <image src='../../assets/imgs/join.png' mode='widthFix'>
   </image>
   <view class='p_box'>
-    <view class='join_t'>
+    <view class='join_t {{isIphoneX?"margin_iphonex":""}}'>
       <view class='rotel'>参与成功，</view>
       <view class='roter'>等待开奖</view>
     </view>

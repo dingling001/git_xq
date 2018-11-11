@@ -32,10 +32,9 @@
   <view class='info_item'>
     <text>职业</text>
     <view>
-     <picker range='{{jobList}}' bindchange='job_fun' value='0'>
-         <text class='info_right'>{{userInfo.job}}</text>
+      <picker range='{{jobList}}' bindchange='job_fun' value='0'>
+        <text class='info_right'>{{userInfo.job?userInfo.job:'选择职业'}}</text>
       </picker>
-    
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </view>
@@ -46,24 +45,24 @@
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </view>
-  <view class='info_item'>
+  <navigator class='info_item' url='../my_resume/my_resume' hover-class='none'>
     <text>个人简历</text>
     <view>
-      <text class='info_right'>{{userInfo.resume}}</text>
+      <text class='info_right'>{{userInfo.resume?userInfo.resume:''}}</text>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
-  </view>
+  </navigator>
   <view class='info_item'>
     <text>工作经历</text>
     <view>
-      <text class='info_right'>{{userInfo.career}}</text>
+      <text class='info_right'>{{userInfo.career?userInfo.career:''}}</text>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </view>
   <view class='info_item'>
     <text>联系方式</text>
     <view>
-      <text class='info_right'>{{userInfo.tel}}</text>
+      <text class='info_right'>{{userInfo.tel?userInfo.tel:''}}</text>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </view>

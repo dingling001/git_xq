@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/index/pize_suc/pize_suc",
     "pages/start/start",
     "pages/index/index",
     "pages/release/release/release",
@@ -21,8 +20,9 @@
     "pages/index/prize/prize",
     "pages/release/rel_pay/rel_pay",
     "pages/release/rel_world/rel_world",
-   
-    "pages/index/prize_detail/prize_detail"
+    "pages/index/pize_suc/pize_suc",
+    "pages/index/prize_detail/prize_detail",
+    "pages/my/my_resume/my_resume"
   ],
   "window": {
     "backgroundTextStyle": "light",

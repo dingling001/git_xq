@@ -118,7 +118,7 @@ page {
   text-align: right;
   color: #666;
   font-size: 26rpx;
-  height: 1000%;
+  height: 100%;
 }
 
 .picker_box .icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing {
