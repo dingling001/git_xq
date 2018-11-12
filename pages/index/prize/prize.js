@@ -5,18 +5,18 @@ Page({
   data: {
     times: 0,
     list: [
-      // {
-      //     "id": 8,
-      //     "title": "花里胡哨的月饼(三)",
-      //     "cover": "../../assets/imgs/banner.jpg",
-      //     "join": 0
-      //   },
-      //   {
-      //     "id": 7,
-      //     "title": "花里胡哨的月饼(二)1",
-      //     "cover": "../../assets/imgs/banner.jpg",
-      //     "join": 1
-      //   },
+      {
+          "id": 8,
+          "title": "花里胡哨的月饼(三)",
+          "cover": "../../assets/imgs/banner.jpg",
+          "join": 0
+        },
+        {
+          "id": 7,
+          "title": "花里胡哨的月饼(二)1",
+          "cover": "../../assets/imgs/banner.jpg",
+          "join": 1
+        },
     ],
     banner: '',
     auth_status: false
@@ -29,7 +29,7 @@ Page({
         banner: options.pic
       })
     }
-    this.getlist();
+    // this.getlist();
     this.getMyinfo()
   },
 
@@ -68,7 +68,7 @@ Page({
     let id = e.target.dataset.id;
     console.log(e)
     wx.navigateTo({
-      url: '../prize_detail/prize_detail?prize_id=' + id,
+      url: '../pize_suc/pize_suc?prize_id=' + id,
     })
   },
   // 抽奖

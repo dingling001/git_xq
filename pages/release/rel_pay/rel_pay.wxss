@@ -99,5 +99,38 @@
   color: #222222;
   display: flex;
   align-items: center;
+   padding: 32rpx 22rpx 32rpx 45rpx;
   background-color: #fff;
+}
+.agree_box .iconfont{
+  margin-right: 10rpx;
+}
+.pay_mold{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color:rgba(0, 0, 0, 0.8) 
+}
+.mold_item{
+  width: 79%;
+  height: 388rpx;
+  font-size: 30rpx;
+  color: #333;
+  background-color: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color{
+  color: #FD4336;
+}
+.agreement text{
+   color: #FD5E2E;
 }

@@ -161,14 +161,16 @@ Page({
   // 显示社群列表
   community() {
     this.setData({
-      show_community: true
+      show_community: true,
+      show_mold:false
     })
     this.getcity();
   },
   // 显示世界列表
   world() {
     this.setData({
-      show_community: false
+      show_community: false,
+      show_mold: false
     })
     this.getWorldList();
   },

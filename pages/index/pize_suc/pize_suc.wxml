@@ -19,7 +19,8 @@
     </view>
     <view class='btn_box'>
       <button class='btnl' type=''>邀请好友抽奖</button>
-      <button class='btr'>参与更多抽奖</button>
+      <button class='btnr'>参与更多抽奖</button>
     </view>
+     <view class='tips'>注：每转发群或者好友增加一次抽奖机会，每天最多三次</view>
   </view>
 </view>

@@ -243,7 +243,7 @@ Page({
                 wx.showToast({
                   title: '已提交审核',
                 });
-                wx.switchTab({
+                wx.navigateTo({
                   url: '../my_auth/my_auth?auth_status=0',
                 })
               } else {
