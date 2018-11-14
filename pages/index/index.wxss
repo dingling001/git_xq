@@ -280,3 +280,6 @@ page {
   background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
 }
+.screen_box{
+  margin-top: 165rpx;
+}

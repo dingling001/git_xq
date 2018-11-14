@@ -18,6 +18,8 @@ Page({
     adcode: '',
     show_mold: false,
     show_community: true,
+    showscreen: false,
+    showchoose: false,
     page: 1,
     page1: 1,
     perpage: 10,
@@ -27,7 +29,8 @@ Page({
     city_status: 0,
     county_status: 0,
     gender: '',
-    gender1: ''
+    gender1: '',
+  
   },
   onLoad: function(options) {
     // console.log(options)
@@ -141,20 +144,26 @@ Page({
     if (this.data.show_mold == false) {
       wx.hideTabBar()
       this.setData({
-        show_mold: true
+        show_mold: true,
+        showscreen: false,
+        showchoose: true
       })
 
     } else {
       wx.showTabBar()
       this.setData({
-        show_mold: false
+        show_mold: false,
+        showscreen: false,
+        showchoose: false
       })
     }
   },
   // 隐藏筛选
   hidemold() {
     this.setData({
-      show_mold: false
+      show_mold: false,
+      showscreen: false,
+      showchoose: false
     })
     wx.showTabBar()
   },
@@ -162,7 +171,7 @@ Page({
   community() {
     this.setData({
       show_community: true,
-      show_mold:false
+      show_mold: false
     })
     this.getcity();
   },
@@ -174,6 +183,7 @@ Page({
     })
     this.getWorldList();
   },
+  // 获取当前城市的城镇
   getcitylist() {
     wx.getStorage({
       key: 'token',
@@ -294,10 +304,28 @@ Page({
     var pic = e.currentTarget.dataset.pic;
     if (url) {
       wx.navigateTo({
-        url: '../index/prize/prize?pic='+pic,
+        url: '../index/prize/prize?pic=' + pic,
       })
     } else {
       console.log(url);
+    }
+  },
+  // 筛选
+  screen() {
+    if (this.data.showscreen == false) {
+      wx.hideTabBar()
+      this.setData({
+        showscreen: true,
+        show_mold: true,
+        showchoose: false
+      })
+    } else {
+      wx.showTabBar()
+      this.setData({
+        show_mold: false,
+        showscreen: false,
+        showchoose: false
+      })
     }
   }
 })

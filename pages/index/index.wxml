@@ -11,11 +11,11 @@
     <!-- <picker mode='region' class='city'>{{city}}</picker> -->
     <view class='city' bindtap='choose'>
       {{district}}
-      <view class='iconfont {{show_mold?"icon-arrLeft-fill1":"icon-arrLeft-fill"}}'></view>
+      <view class='iconfont {{showchoose?"icon-arrLeft-fill1":"icon-arrLeft-fill"}}'></view>
     </view>
-    <view class='city'>
+    <view class='city' bindtap='screen'>
       筛选
-      <view class='iconfont {{show_mold?"icon-arrLeft-fill":"icon-arrLeft-fill1"}}'></view>
+      <view class='iconfont {{showscreen?"icon-arrLeft-fill1":"icon-arrLeft-fill"}}'></view>
     </view>
   </view>
 </view>
@@ -27,7 +27,13 @@
   </swiper>
 </view>
 <view class='city_mold' wx:if='{{show_mold}}' bindtap='hidemold'>
-  <view class='city_mold_box'>
+
+  <view wx:if='{{showscreen}}' class='city_mold_box'>
+ <view class='screen_box'>
+ <view>性别要求</view>
+ </view>
+  </view>
+  <view class='city_mold_box' wx:else>
     <view class='city_title'>
       <view class='near'>附近</view>
       <view class='all'>全部</view>
