@@ -21,10 +21,7 @@
     "pages/release/rel_pay/rel_pay",
     "pages/release/rel_world/rel_world",
     "pages/index/pize_suc/pize_suc",
-    "pages/index/prize_detail/prize_detail",
-    "pages/my/my_resume/my_resume",
-    "pages/my/my_account_detail/my_account_detail",
-    "pages/my/agreement/agreement"
+    "pages/index/prize_detail/prize_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -70,8 +70,8 @@ page {
   margin: 0 10rpx;
 }
 
-.city_box .icon-sanjiao {
-  font-size: 21rpx;
+.city_box .icon-arrLeft-fill, .city_box .icon-arrLeft-fill1 {
+  font-size: 30rpx;
   color: #222;
 }
 
@@ -153,7 +153,7 @@ page {
   height: 22rpx;
 }
 
- .name_imgs {
+.name_imgs {
   margin: 0 0 0 10rpx;
 }
 
@@ -190,7 +190,7 @@ page {
 .index_item_img image {
   height: 80rpx;
   width: 80rpx;
-  will-change: transform
+  will-change: transform;
 }
 
 .index_name {
@@ -199,17 +199,21 @@ page {
   font-size: 26rpx;
   color: #222;
 }
+
 .index_name .iconfont {
   font-size: 32rpx;
   font-weight: bold;
   margin-right: 5rpx;
 }
-.index_name .icon-xingbie2{
+
+.index_name .icon-xingbie2 {
   color: #1296db;
 }
-.index_name .icon-xingbie1{
-color: #ff9dc6;
+
+.index_name .icon-xingbie1 {
+  color: #ff9dc6;
 }
+
 .index_time {
   color: #999;
   font-size: 22rpx;
