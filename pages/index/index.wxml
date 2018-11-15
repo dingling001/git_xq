@@ -29,9 +29,23 @@
 <view class='city_mold' wx:if='{{show_mold}}' bindtap='hidemold'>
 
   <view wx:if='{{showscreen}}' class='city_mold_box'>
- <view class='screen_box'>
- <view>性别要求</view>
- </view>
+    <view class='screen_box'>
+      <view class='sex_title'>性别要求</view>
+      <view class='sex_list'>
+        <view>男</view>
+        <view>女</view>
+      </view>
+      <view class='sex_title'>年龄要求</view>
+      <view class='sex_list'>
+        <view>25岁以下</view>
+        <view>25岁-35岁</view>
+        <view>35岁以上</view>
+      </view>
+      <view class='btns'>
+        <view >重置</view>
+        <view class='entrue'>确定</view>
+      </view>
+    </view>
   </view>
   <view class='city_mold_box' wx:else>
     <view class='city_title'>

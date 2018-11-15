@@ -118,7 +118,7 @@ page {
   align-items: center;
   font-size: 26rpx;
   color: #666;
-  margin-top: 165rpx;
+  margin-top: 178rpx;
   border-bottom: 1px solid #f3f5f7;
 }
 
@@ -153,7 +153,7 @@ page {
   height: 22rpx;
 }
 
- .name_imgs {
+.name_imgs {
   margin: 0 0 0 10rpx;
 }
 
@@ -190,7 +190,7 @@ page {
 .index_item_img image {
   height: 80rpx;
   width: 80rpx;
-  will-change: transform
+  will-change: transform;
 }
 
 .index_name {
@@ -199,17 +199,21 @@ page {
   font-size: 26rpx;
   color: #222;
 }
+
 .index_name .iconfont {
   font-size: 32rpx;
   font-weight: bold;
   margin-right: 5rpx;
 }
-.index_name .icon-xingbie2{
+
+.index_name .icon-xingbie2 {
   color: #1296db;
 }
-.index_name .icon-xingbie1{
-color: #ff9dc6;
+
+.index_name .icon-xingbie1 {
+  color: #ff9dc6;
 }
+
 .index_time {
   color: #999;
   font-size: 22rpx;
@@ -276,10 +280,61 @@ color: #ff9dc6;
   background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
   background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
 }
-.screen_box{
-  margin-top: 165rpx;
+
+.screen_box {
+  margin-top: 178rpx;
 }
-.city .icon-arrLeft-fill,.city .icon-arrLeft-fill1{
+
+.city .icon-arrLeft-fill, .city .icon-arrLeft-fill1 {
   font-size: 38rpx;
-  color: #222222
+  color: #222;
+}
+
+.sex_title {
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 29rpx 25rpx;
+  color: #222;
+}
+
+.sex_list {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 25rpx;
+}
+
+.sex_list view {
+  border: 1px solid #dcdcdc;
+  min-width: 107rpx;
+  text-align: center;
+  padding: 8rpx 26rpx;
+  margin: 0 25rpx 10rpx 0;
+  color: #999;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+
+.sex_list .active_view {
+  border: 1px solid #f00;
+  color: #fd4336;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  margin: 50rpx 0 0 0;
+  border-top: 1px solid #f3f5f7;
+}
+
+.btns view {
+  flex: 1;
+  color: #fd5a2f;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 34rpx 0;
+}
+
+.btns .entrue {
+  background-color: #fd5a2f;
+  color: #fff;
 }
