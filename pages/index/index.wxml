@@ -27,7 +27,6 @@
   </swiper>
 </view>
 <view class='city_mold' wx:if='{{show_mold}}' bindtap='hidemold'>
-
   <view wx:if='{{showscreen}}' class='city_mold_box'>
     <view class='screen_box'>
       <view class='sex_title'>性别要求</view>
