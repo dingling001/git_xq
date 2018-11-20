@@ -1,0 +1,13 @@
+<!--pages/my/my_cash/my_cash.wxml-->
+<view class='c_list'>
+  <view class='c_item'>
+    <view class='c_top'>
+      <text>提现</text>
+      <text>2018-08-10</text>
+    </view>
+    <view class='c_bottom'>
+      <text>余额：0.00</text>
+      <text>- 300.00</text>
+    </view>
+  </view>
+</view>

@@ -2,7 +2,7 @@
 <view class='account_top'>
   <view class='account_top_item'>
     <text>余额（元）</text>
-    <view class='account_btn'>明细</view>
+     <navigator hover-class='none' url='../my_cash/my_cash'  class='account_btn'>明细</navigator>
   </view>
   <text>{{cash}}</text>
 </view>
@@ -12,11 +12,13 @@
     <view class='account_title'>提现规则</view>
     <view class='account_content'>
       <view>平台会收取您3%手续费用</view>
-      <view>您当前的可以提现金额为100.00元</view>
+      <view>您当前的可以提现金额为{{cash}}元</view>
     </view>
     <view class='account_btn_box'>
       <view bindtap='cash_cancel'>取消</view>
-      <view class='account_entrue'>确认</view>
+      <view class='account_entrue'>
+        <navigator hover-class='none' url='../my_account_detail/my_account_detail'>确认</navigator>
+      </view>
     </view>
   </view>
 </view>

@@ -5,6 +5,7 @@ Page({
     cash_show: false,
     cash: ''
   },
+  // 获取提现信息
   getCash() {
     var that = this;
     wx.getStorage({
@@ -59,9 +60,10 @@ Page({
   onReachBottom: function() {
 
   },
-
+  // 提现
   cash_fun() {
-    if (this.data.cash == 0) {
+    // if (this.data.cash == 0) {
+    if (this.data.cash != 0) {
       wx.showToast({
         title: '余额不足',
         icon: 'none'
@@ -72,9 +74,10 @@ Page({
       })
     }
   },
+  // 取消
   cash_cancel() {
     this.setData({
       cash_show: false
     })
-  }
+  },
 })

@@ -16,12 +16,14 @@
     "pages/my/my_vip/my_vip",
     "pages/my/my_invitation/my_invitation",
     "pages/my/my_auth/my_auth",
+    "pages/my/my_account_detail/my_account_detail",
     "pages/release/rel_cate/rel_cate",
     "pages/index/prize/prize",
     "pages/release/rel_pay/rel_pay",
     "pages/release/rel_world/rel_world",
     "pages/index/pize_suc/pize_suc",
-    "pages/index/prize_detail/prize_detail"
+    "pages/index/prize_detail/prize_detail",
+    "pages/my/my_cash/my_cash"
   ],
   "window": {
     "backgroundTextStyle": "light",

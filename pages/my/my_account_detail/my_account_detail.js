@@ -1,23 +1,41 @@
 // pages/my/my_account_detail/my_account_detail.js
+var network = require("../../../utils/network.js");
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+
   data: {
-
+    myrelyList:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  myAccountDetail(){
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'index/myAccountDetail',
+          header: 'application/x-www - form - urlencoded',
+          params: {
+            token: res_token.data,
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 1) {
+            that.setData({
+              myrelyList:res.data.data
+            })
+            } else {
+              console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
   onLoad: function (options) {
-
+    this.myAccountDetail();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+
   onReady: function () {
 
   },

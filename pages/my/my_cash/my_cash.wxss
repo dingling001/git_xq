@@ -1,0 +1,17 @@
+/* pages/my/my_cash/my_cash.wxss */
+
+.c_list {
+  margin-top: 21rpx;
+}
+
+.c_item {
+  border-bottom: 1px solid #f3f5f7;
+  padding: 21rpx 22rpx;
+  background-color: #fff;
+}
+
+.c_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -13,7 +13,7 @@
         <view class='name_img'>
           <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
         </view>
-        <view class='rongyu'>60</view>
+        <view class='rongyu'>100</view>
       </view>
     </view>
     <view class='rel_text'>{{item.content}}</view>
