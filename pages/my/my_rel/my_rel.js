@@ -15,6 +15,7 @@ Page({
       tab: e.target.dataset.tab
     })
   },
+  // 获取我的发布列表
   getmyRelease() {
     var that = this;
     wx.getStorage({

@@ -31,7 +31,17 @@ Page({
       },
     })
   },
-
+  // 跳转提现详情
+  go_cash() {
+    wx.navigateTo({
+      url: '../my_account_detail/my_account_detail?cash=' + this.data.cash,
+      success: (res) => {
+        this.setData({
+          cash_show: false
+        })
+      },
+    })
+  },
   onLoad: function(options) {
     this.getCash()
   },

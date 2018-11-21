@@ -1,13 +1,26 @@
 <!--pages/my/my_cash/my_cash.wxml-->
-<view class='c_list'>
-  <view class='c_item'>
+<view class='list' wx:if='{{myrelyList.length==0}}'>
+  <view class='nodata'>暂无明细</view>
+</view>
+<view class='c_list' wx:else>
+  <view class='c_item' wx:for='{{myrelyList}}'>
     <view class='c_top'>
       <text>提现</text>
-      <text>2018-08-10</text>
+      <text class='c_top_r'>2018-08-10</text>
     </view>
     <view class='c_bottom'>
       <text>余额：0.00</text>
-      <text>- 300.00</text>
+      <text class='c_price'>- 300.00</text>
+    </view>
+  </view>
+  <view class='c_item'>
+    <view class='c_top'>
+      <text>提现</text>
+      <text class='c_top_r'>2018-08-10</text>
+    </view>
+    <view class='c_bottom'>
+      <text>余额：0.00</text>
+      <text class='c_price c_price_active'>- 300.00</text>
     </view>
   </view>
 </view>

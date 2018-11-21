@@ -1,2 +1,55 @@
 <!--pages/my/my_vip/my_vip.wxml-->
-<text>正在开发</text>
+<view class='vip_top'>
+  <image src='../../assets/imgs/vip_top.png' mode='widthFix'></image>
+  <view class='vip_day' wx:if='{{vip_time}}'>剩余{{vip_time}}天</view>
+  <view class='vip_day' wx:else>暂未开通</view>
+</view>
+<view class='vips_kaitong'>开通会员</view>
+<view class='vips'>
+  <view class='vip_item {{vip_c==index?"vip_active":""}}' wx:key='{{item.id}}' bindtap='vip_fun' wx:for='{{vip_list}}' data-index='{{index}}' data-vipid='{{item.id}}'>
+    <view>
+      <view class='v_title'>{{item.title}}</view>
+      <view class='v_time'>{{item.detail}}</view>
+    </view>
+    <view class='v_price'>￥{{item.price}}元</view>
+  </view>
+  <!-- <view class='vip_item {{vip_c==1?"vip_active":""}}' bindtap='vip_fun1'>
+    <view>
+      <view class='v_title'>季度会员</view>
+      <view class='v_time'>90天会员</view>
+    </view>
+    <view class='v_price'>￥64元</view>
+  </view>
+  <view class='vip_item {{vip_c==2?"vip_active":""}}' bindtap='vip_fun2'>
+    <view>
+      <view class='v_title'>年费会员</view>
+      <view class='v_time'>365天会员</view>
+    </view>
+    <view class='v_price'>￥280元</view>
+  </view> -->
+</view>
+<view class='vip_tips'>
+  <image src='../../assets/imgs/vip_tip.png' mode='widthFix'></image>
+  <view class='vip_logo'>
+    <image src='../../assets/imgs/vip_logo.png' mode='widthFix'></image>
+  </view>
+  <view class='ul'>
+    <view class='li'>
+      <view class='dot'></view>
+      <text>需求置顶，会员皇冠标识！</text>
+    </view>
+    <view class='li'>
+      <view class='dot'></view>
+      <text>享受百分之5的下级分润！</text>
+    </view>
+    <view class='li'>
+      <view class='dot'></view>
+      <text>提现只需要百分之5的手续费！</text>
+    </view>
+    <view class='li'>
+      <view class='dot'></view>
+      <text>享受下级会员百分之50的会费分润！</text>
+    </view>
+  </view>
+</view>
+<view class='v_btn' bindtap='vip'>立即开通</view>

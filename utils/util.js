@@ -37,16 +37,15 @@ const formatTime = (date, type, num) => {
   } else if (type == 0) {
     return [year, month, day].map(formatNumber).join('-')
   } else if (type == 3) {
-    num = parseInt(num)+1
+    num = parseInt(num) + 1
     console.log(num)
     console.log(num + hour)
-    if (num + hour==24){
-      hour=0
-      day=day+1
+    if (num + hour == 24) {
+      hour = 0
+      day = day + 1
       console.log(hour)
-    }
-    else if(num+hour<24){
-      hour=num+hour
+    } else if (num + hour < 24) {
+      hour = num + hour
     }
     return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
   }
@@ -143,10 +142,72 @@ function getMonthDay(year, month) {
   return array;
 }
 
+
+function dateDiff(timestamp) {
+  // 补全为13位
+  var arrTimestamp = (timestamp + '').split('');
+  for (var start = 0; start < 13; start++) {
+    if (!arrTimestamp[start]) {
+      arrTimestamp[start] = '0';
+    }
+  }
+  timestamp = arrTimestamp.join('') * 1;
+
+  var minute = 1000 * 60;
+  var hour = minute * 60;
+  var day = hour * 24;
+  var halfamonth = day * 15;
+  var month = day * 30;
+  var now = new Date().getTime();
+  var diffValue = timestamp - now;
+
+  // 如果本地时间反而小于变量时间
+  if (diffValue < 0) {
+    return '不久前';
+  }
+
+  // 计算差异时间的量级
+  var monthC = diffValue / month;
+  var weekC = diffValue / (7 * day);
+  var dayC = diffValue / day;
+  var hourC = diffValue / hour;
+  var minC = diffValue / minute;
+
+  // 数值补0方法
+  var zero = function(value) {
+    if (value < 10) {
+      return '0' + value;
+    }
+    return value;
+  };
+  return Math.ceil(dayC)
+  // console.log(Math.ceil(dayC))
+  // 使用
+  // if (monthC > 12) {
+  //   // 超过1年，直接显示年月日
+  //   return (function() {
+  //     var date = new Date(timestamp);
+  //     return date.getFullYear() + '年' + zero(date.getMonth() + 1) + '月' + zero(date.getDate()) + '日';
+  //   })();
+  // } else if (monthC >= 1) {
+  //   return parseInt(monthC) ;
+  // } else if (weekC >= 1) {
+  //   return parseInt(weekC);
+  // } else if (dayC >= 1) {
+  //   return parseInt(dayC) ;
+  // } else if (hourC >= 1) {
+  //   return parseInt(hourC) ;
+  // } else if (minC >= 1) {
+  //   return parseInt(minC) ;
+  // }
+  // return '刚刚';
+};
+
 module.exports = {
   formatTime: formatTime,
   dateTimePicker: dateTimePicker,
   getMonthDay: getMonthDay,
   formatDate: formatDate,
   base_img_url: base_img_url,
+  dateDiff: dateDiff
 }

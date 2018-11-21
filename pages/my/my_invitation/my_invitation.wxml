@@ -1,2 +1,10 @@
 <!--pages/my/my_invitation/my_invitation.wxml-->
-<text>正在开发</text>
+<view class='i_bgc'>
+  <image src='../../assets/imgs/invited.jpg' mode='widthFix'></image>
+  <button class='btn_box' open-type='share'>
+    <image src='../../assets/imgs/btn.png' mode='widthFix'></image>
+  </button>
+  <view class='code_box {{isIphoneX?"iphonex":""}}'>
+    <image src='../../assets/imgs/code.png' mode='widthFix'></image>
+  </view>
+</view>

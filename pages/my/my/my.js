@@ -6,10 +6,15 @@ Page({
     avatarUrl: '',
     nickName: '',
     auth_status: 0,
-    user_info: []
+    user_info: [],
+    contact: ''
   },
   onLoad: function(options) {
     this.getMyinfo();
+    this.setData({
+      contact: app.globalData.contact
+    })
+    // console.log(app.globalData)
   },
   // 获取个人信息
   getMyinfo() {
@@ -41,12 +46,18 @@ Page({
 
   // 联系我们
   contact() {
-    wx.makePhoneCall({
-      phoneNumber: '13821452840',
-      success(res) {
-        console.log(res)
-      }
-    })
+    if (this.data.contact) {
+      wx.makePhoneCall({
+        phoneNumber: this.data.contact,
+        success(res) {
+          console.log(res)
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '客服当前不在线',
+      })
+    }
   },
   // 实名认证
   go_auth() {

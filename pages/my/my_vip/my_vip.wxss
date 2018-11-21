@@ -1,1 +1,140 @@
 /* pages/my/my_vip/my_vip.wxss */
+
+.vip_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.vip_top image {
+  width: 100%;
+}
+
+.vip_day {
+  position: absolute;
+  right: 73rpx;
+  top: 62rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #cfbb8b;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.27);
+}
+
+.vips {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 0 0 77rpx 0;
+}
+
+.vips_kaitong {
+  padding: 50rpx 0 24rpx 34rpx;
+  font-size: 26rpx;
+  color: #222;
+  background-color: #fff;
+}
+
+.vip_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25rpx 0 35rpx 0;
+  height: 247rpx;
+  width: 30%;
+  border-radius: 10rpx;
+  border: 2rpx #f2d9a1 solid;
+  color: #694f14;
+}
+
+.vip_active {
+  background-color: #f3daa3;
+  color: #222;
+}
+
+.v_title {
+  /* padding: 0 0 18rpx 0; */
+  font-size: 30rpx;
+}
+
+.v_time {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.v_price {
+  font-size: 39rpx;
+  font-weight: bold;
+}
+
+.vip_tips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 40rpx; */
+  background-color: #fff;
+  margin: 20rpx 0 0 0;
+  position: relative;
+}
+
+.vip_tips image {
+  width: 100%;
+}
+
+.vip_logo {
+  position: absolute;
+  top: 66rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 51%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vip_logo image {
+  width: 100%;
+}
+
+.ul {
+  position: absolute;
+  top: 120rpx;
+  left: 108rpx;
+}
+
+.ul .li {
+  color: #54524c;
+  font-size: 30rpx;
+  padding-bottom: 29rpx;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.ul .li .dot {
+  height: 8rpx;
+  width: 8rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  background-color: #433f33;
+  
+}
+
+.ul .li  text {
+  flex: 1;
+}
+.v_btn{
+  color: #2C2B2A;
+  font-size: 36rpx;
+  width: 87.2%;
+  margin: 70rpx auto 58rpx auto;
+  background-color: #F2D9A1;
+  box-shadow:0px 8px 13px 0px rgba(173,146,86,0.27);
+  border-radius: 47rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  font-weight: bold;
+}

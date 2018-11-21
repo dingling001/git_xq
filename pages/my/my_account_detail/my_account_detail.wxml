@@ -1,8 +1,8 @@
 <!--pages/my/my_account_detail/my_account_detail.wxml-->
-<view class='list' wx:if='{{myrelyList.length==0}}'>
+<!-- <view class='list' wx:if='{{myrelyList.length==0}}'>
   <view class='nodata'>暂无明细</view>
-</view>
-<view class='list' wx:else>
+</view> -->
+<!-- <view class='list' wx:else>
   <view class='rel_item' wx:for='{{myrelyList}}' wx:key='*this'>
     <view class='rel_content'>
       <text>需求内容</text>
@@ -48,4 +48,14 @@
 
   </view>
 
-</view>
+</view> -->
+<form bindsubmit="cash_fun" report-submit>
+  <view class='input_box'>
+    <view class='cash_title'>请输入您的提现金额</view>
+    <view class='input_item'>
+      <text>￥</text>
+      <input placeholder='{{cash_placeholder}}' bindinput='cash_input' type='number'></input>
+    </view>
+  </view>
+  <button formType="submit" class='cash_btn {{cash_show?"op1":""}}'>确定</button>
+</form>

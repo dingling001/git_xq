@@ -2,7 +2,7 @@
 <view class='account_top'>
   <view class='account_top_item'>
     <text>余额（元）</text>
-     <navigator hover-class='none' url='../my_cash/my_cash'  class='account_btn'>明细</navigator>
+    <navigator hover-class='none' url='../my_cash/my_cash' class='account_btn'>明细</navigator>
   </view>
   <text>{{cash}}</text>
 </view>
@@ -16,8 +16,8 @@
     </view>
     <view class='account_btn_box'>
       <view bindtap='cash_cancel'>取消</view>
-      <view class='account_entrue'>
-        <navigator hover-class='none' url='../my_account_detail/my_account_detail'>确认</navigator>
+      <view class='account_entrue' bindtap='go_cash'>
+        <text>确认</text>
       </view>
     </view>
   </view>

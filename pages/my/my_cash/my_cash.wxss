@@ -9,9 +9,36 @@
   padding: 21rpx 22rpx;
   background-color: #fff;
 }
+.c_item:last-child{
+  border: 0
+}
 
 .c_top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.c_top_r {
+  font-size: 20rpx;
+  color: #ccc;
+}
+
+.c_bottom {
+  font-size: 22rpx;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c_price {
+  color: #0fe947;
+  font-size: 26rpx;
+}
+
+.c_price_active {
+  color: #ff2727;
 }
