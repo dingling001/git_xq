@@ -45,7 +45,7 @@
   color: #666;
   font-size: 24rpx;
   text-align: right;
-  width: 100%;
+  flex: 1
 }
 
 .icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing {

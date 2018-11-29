@@ -41,7 +41,9 @@
   <view class='info_item'>
     <text>家乡</text>
     <view>
-      <text class='info_right'>{{userInfo.city}}</text>
+      <picker mode='region' bindchange='bindRegionChange'  value="{{region}}">
+        <text class='info_right'>{{city}}</text>
+      </picker>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </view>
@@ -52,13 +54,13 @@
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </navigator>
-  <view class='info_item'>
+  <navigator class='info_item' url='../mywork/mywork' hover-class='none'>
     <text>工作经历</text>
     <view>
       <text class='info_right'>{{userInfo.career?userInfo.career:''}}</text>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
-  </view>
+  </navigator>
   <view class='info_item'>
     <text>联系方式</text>
     <view>

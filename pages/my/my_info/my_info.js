@@ -13,11 +13,14 @@ Page({
     nickname: '',
     age: [],
     age_index: 11,
-    jobList: []
+    jobList: [],
+    region: [],
+    city: ''
   },
   onLoad: function(options) {
     this.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      city: app.globalData.userInfo.city
     })
     if (this.data.userInfo.gender == 1) {
       this.setData({
@@ -87,10 +90,18 @@ Page({
   },
   // 选择职业
   job_fun(e) {
-  app.globalData.userInfo.job = this.data.jobList[e.detail.value];
-  this.setData({
-    userInfo: app.globalData.userInfo
-  });
+    app.globalData.userInfo.job = this.data.jobList[e.detail.value];
+    this.setData({
+      userInfo: app.globalData.userInfo
+    });
+  },
+  // 选择城市
+  bindRegionChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      city: e.detail.value[2]
+    })
+    console.log(this.data.city)
   },
   onReady: function() {
 

@@ -1,1 +1,50 @@
 /* pages/my/my_resume/my_resume.wxss */
+
+.rel_tips {
+  font-size: 26rpx;
+  color: #fd5a2f;
+  background-color: rgba(255, 167, 141, 0.4);
+  padding: 23rpx 20rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  /* margin-bottom: 22rpx; */
+}
+
+.rel_box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 31rpx 24rpx;
+  margin-top: 100rpx;
+}
+
+.re_item {
+  width: 29.3%;
+  text-align: center;
+  padding: 22rpx 0;
+  border-radius: 10rpx;
+  margin: 0 20rpx 31rpx 0;
+  border: 2rpx solid #e1e1e1;
+  color: #666;
+  font-size: 26rpx;
+}
+
+.re_item_active {
+  background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #fd4336, #fd5e2e); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fd4336, #fd5e2e); /* 标准的语法 */
+  color: #fff;
+}
+.save{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 34rpx 0;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+}

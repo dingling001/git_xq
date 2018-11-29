@@ -1,2 +1,9 @@
 <!--pages/my/my_resume/my_resume.wxml-->
-<text>pages/my/my_resume/my_resume.wxml</text>
+<view class='rel_tips'>完善个人简历</view>
+<view class='rel_box'>
+  <view class='re_item re_item_active'>学习能力强</view>
+    <view class='re_item'>学习能力强</view>
+      <view class='re_item'>学习能力强</view>
+        <view class='re_item'>学习能力强</view>
+</view>
+<view class='grident save'>保存</view>
