@@ -1,9 +1,6 @@
 <!--pages/my/my_resume/my_resume.wxml-->
 <view class='rel_tips'>完善个人简历</view>
 <view class='rel_box'>
-  <view class='re_item re_item_active'>学习能力强</view>
-    <view class='re_item'>学习能力强</view>
-      <view class='re_item'>学习能力强</view>
-        <view class='re_item'>学习能力强</view>
+  <view class='re_item {{item.check?"re_item_active":""}}' data-selectIndex='{{index}}' wx:for='{{myrelyList}}' wx:key='{{item.id}}' bindtap='choose_reItem'>{{item.content}}</view>
 </view>
-<view class='grident save'>保存</view>
+<view class='grident save' bindtap='save_fun'>保存</view>

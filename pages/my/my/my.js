@@ -10,6 +10,7 @@ Page({
     contact: ''
   },
   onLoad: function(options) {
+    console.log(options)
     this.getMyinfo();
     this.setData({
       contact: app.globalData.contact

@@ -1,2 +1,5 @@
 <!--pages/my/mywork/mywork.wxml-->
-<text>pages/my/mywork/mywork.wxml</text>
+<view class='text_box'>
+  <textarea placeholder='请输入工作经历，5~500字' auto-focus placeholder-class='text_p' value='{{career}}' bindinput='career_fun'></textarea>
+</view>
+<view class='grident save' bindtap='save_fun'>保存</view>

@@ -1,7 +1,5 @@
 // pages/my/my_auth/my_auth.js
 Page({
-
-
   data: {
 
   },

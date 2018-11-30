@@ -1,66 +1,67 @@
 // pages/my/mywork/mywork.js
+var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    career: '',
+    career_input: ''
+  },
+  // 获取工作经历
+  career_fun(e) {
+    this.setData({
+      career_input: e.detail.value
+    })
+  },
+  // 保存
+  save_fun() {
+    wx.navigateTo({
+      url: '../my_info/my_info?career=' + this.data.career_input
+    })
+  },
+  onLoad: function(options) {
+    if (app.globalData.userInfo.career) {
+      this.setData({
+        career: app.globalData.userInfo.career
+      })
+    }
+  },
+
+
+  onReady: function() {
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

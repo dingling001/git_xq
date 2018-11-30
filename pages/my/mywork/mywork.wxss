@@ -1,1 +1,31 @@
 /* pages/my/mywork/mywork.wxss */
+
+.text_box {
+  height: 500rpx;
+  padding: 10rpx;
+}
+
+.text_box textarea {
+  border: 0;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.save {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 34rpx 0;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.text_p {
+  color: #ccc;
+  font-size: 26rpx;
+  padding: 10rpx;
+}

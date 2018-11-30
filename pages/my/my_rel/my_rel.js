@@ -47,6 +47,10 @@ Page({
       },
     })
   },
+  // 选择简历
+  choose_reItem() {
+
+  },
   onLoad: function(options) {
     this.getmyRelease()
   },

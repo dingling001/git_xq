@@ -18,6 +18,7 @@ Page({
     city: ''
   },
   onLoad: function(options) {
+    console.log(options)
     this.setData({
       userInfo: app.globalData.userInfo,
       city: app.globalData.userInfo.city
