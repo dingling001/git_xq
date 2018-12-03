@@ -30,13 +30,16 @@ Page({
     county_status: 0,
     gender: '',
     gender1: '',
-  
+    district_list: [],
+    down_list: [],
+    fujin: true,
+    selected_index: -1
   },
   onLoad: function(options) {
     // console.log(options)
     this.slideShow();
     this.getcity();
-    this.getcitylist();
+    // this.getcitylist();
     this.getWorldList();
   },
   onShow: function() {
@@ -125,19 +128,47 @@ Page({
   },
   // 获取城市的城镇
   getdistrict() {
-
+    var that = this;
     // this.setData({
     //   adcode: this.data.adcode.substring(3, -1)
     // })
     console.log(this.data.adcode)
     map.getDistrictByCityId({
-      id: this.data.adcode, // 对应城市ID
+      // id: this.data.adcode, // 对应城市ID
       id: '120000',
       success: function(res) {
-        // console.log(res);
+        that.setData({
+          district_list: res.result[0]
+        })
       },
-
     });
+
+  },
+  // 选择镇级列表
+  getdowntown(e) {
+    var that = this;
+    var id = e.currentTarget.dataset.code;
+    var index = e.currentTarget.dataset.index;
+    map.getDistrictByCityId({
+      // id: this.data.adcode, // 对应城市ID
+      id: id,
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          down_list: res.result[0],
+          fujin: false,
+          selected_index: index
+        })
+      },
+    });
+  },
+  // 附近
+  fujin_fun() {
+    this.setData({
+      fujin: true,
+      selected_index: -1,
+      down_list:[]
+    })
   },
   // 选择条件
   choose() {
@@ -184,29 +215,29 @@ Page({
     this.getWorldList();
   },
   // 获取当前城市的城镇
-  getcitylist() {
-    wx.getStorage({
-      key: 'token',
-      success: (res_token) => {
-        network.POST({
-          url: 'api/getCitylist',
-          header: 'application/x-www - form - urlencoded',
-          params: {
-            token: res_token.data,
-          },
-          success(res) {
-            // console.log(res);
-            if (res.data.code == 1) {
+  // getcitylist() {
+  //   wx.getStorage({
+  //     key: 'token',
+  //     success: (res_token) => {
+  //       network.POST({
+  //         url: 'api/getCitylist',
+  //         header: 'application/x-www - form - urlencoded',
+  //         params: {
+  //           token: res_token.data,
+  //         },
+  //         success(res) {
+  //           // console.log(res);
+  //           if (res.data.code == 1) {
 
-              wx.hideLoading();
-            } else {
-              console.log(res);
-            }
-          }
-        })
-      },
-    })
-  },
+  //             wx.hideLoading();
+  //           } else {
+  //             console.log(res);
+  //           }
+  //         }
+  //       })
+  //     },
+  //   })
+  // },
   // 获取社区列表
   getRlist() {
     var that = this;

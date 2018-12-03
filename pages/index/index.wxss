@@ -115,22 +115,11 @@ page {
 
 .city_title {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   font-size: 26rpx;
   color: #666;
   margin-top: 178rpx;
   border-bottom: 1px solid #f3f5f7;
-}
-
-.near {
-  flex: 3;
-  text-align: center;
-  padding: 22rpx 0;
-}
-
-.all {
-  flex: 7;
-  padding: 22rpx 29rpx;
 }
 
 .name_right {
@@ -337,4 +326,47 @@ page {
 .btns .entrue {
   background-color: #fd5a2f;
   color: #fff;
+}
+
+.all {
+  flex: 7;
+  /* padding: 22rpx 29rpx; */
+}
+
+.near {
+  flex: 3;
+  text-align: center;
+  background-color: #e9e9e9;
+}
+
+.district_box {
+  display: flex;
+  flex-direction: column;
+  height: 600rpx;
+  overflow: scroll;
+}
+
+.district_box::-webkit-scrollbar {
+  display: none;
+}
+
+.district_box .district_item {
+  padding: 22rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.all .district_box .district_item {
+  border-bottom: 1px #f3f5f7 solid;
+  text-align: left;
+ padding: 22rpx 30rpx;
+}
+
+.district_box .district_title {
+  margin: 0 0 32rpx 0;
+}
+
+.district_item_active {
+  background-color: #fff;
 }

@@ -41,15 +41,25 @@
         <view>35岁以上</view>
       </view>
       <view class='btns'>
-        <view >重置</view>
+        <view>重置</view>
         <view class='entrue'>确定</view>
       </view>
     </view>
   </view>
   <view class='city_mold_box' wx:else>
     <view class='city_title'>
-      <view class='near'>附近</view>
-      <view class='all'>全部</view>
+      <view class='near'>
+        <view class='district_box'>
+          <view class='district_item {{fujin?"district_item_active":""}}' catchtap='fujin_fun'>附近</view>
+          <view class='district_item {{selected_index==index?"district_item_active":""}}' wx:for='{{district_list}}' wx:key='{{item.id}}' catchtap='getdowntown' data-code='{{item.id}}' data-index='{{index}}'>{{item.fullname}}</view>
+        </view>
+      </view>
+      <view class='all'>
+        <view class='district_box'>
+          <view class='district_item district_item_active'>全部</view>
+          <view class='district_item' wx:for='{{down_list}}' wx:key='{{item.id}}'>{{item.fullname}}</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
