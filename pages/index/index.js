@@ -33,7 +33,9 @@ Page({
     district_list: [],
     down_list: [],
     fujin: true,
-    selected_index: -1
+    selected_index: -1,
+    all_index: -1,
+    all:true
   },
   onLoad: function(options) {
     // console.log(options)
@@ -157,7 +159,9 @@ Page({
         that.setData({
           down_list: res.result[0],
           fujin: false,
-          selected_index: index
+          selected_index: index,
+          all_index:-1,
+          all:true
         })
       },
     });
@@ -167,7 +171,22 @@ Page({
     this.setData({
       fujin: true,
       selected_index: -1,
-      down_list:[]
+      down_list: []
+    })
+  },
+  // 全部选择
+  all_fun(e) {
+    var index = e.currentTarget.dataset.index;
+    this.setData({
+      all_index:index,
+      all: false,
+    })
+  },
+  // 全部
+  all_index_fun(){
+    this.setData({
+      all:true,
+      all_index: -1,
     })
   },
   // 选择条件

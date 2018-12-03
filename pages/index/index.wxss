@@ -370,3 +370,6 @@ page {
 .district_item_active {
   background-color: #fff;
 }
+.all .district_item_active{
+  color: #fd4336;
+}

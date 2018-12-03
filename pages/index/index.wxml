@@ -56,8 +56,8 @@
       </view>
       <view class='all'>
         <view class='district_box'>
-          <view class='district_item district_item_active'>全部</view>
-          <view class='district_item' wx:for='{{down_list}}' wx:key='{{item.id}}'>{{item.fullname}}</view>
+          <view class='district_item {{all?"district_item_active":""}}' catchtap='all_index_fun'>全部</view>
+          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}' catchtap='all_fun'>{{item.fullname}}</view>
         </view>
       </view>
     </view>
