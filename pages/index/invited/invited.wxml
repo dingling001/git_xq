@@ -1,0 +1,55 @@
+<!--pages/index/invited/invited.wxml-->
+<form bindsubmit='invited_fun' report-submit>
+
+  <view class='rel_item' >
+    <view class='rel_content'>
+      <text>需求内容</text>
+      <view class='name_right'>
+        <view class='name_img'>
+          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+        </view>
+        <view class='rongyu'>{{order_detail.credit}}</view>
+      </view>
+    </view>
+    <view class='rel_text'>{{order_detail.content}}</view>
+    <view class='rel_info'>
+      <text>需求人数</text>
+      <text class='rel_info_r'>{{order_detail.num}}人</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求类型</text>
+      <text class='rel_info_r'>{{order_detail.cate_name}}</text>
+    </view>
+    <view class='rel_info'>
+      <text>需求地点</text>
+      <text class='rel_info_r'>{{order_detail.address}}</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布时间</text>
+      <text class='rel_info_r'>{{order_detail.create_time}}</text>
+    </view>
+    <view class='rel_info'>
+      <text>应邀状态</text>
+      <text class='rel_info_r rel_invited' wx:if='{{order_detail.status==1}}'>待应邀</text>
+    </view>
+    <view class='rel_info'>
+      <text>发布金额 <text class='rate'>(含10%手续费)</text></text>
+      <text class='rel_info_r'>{{order_detail.real_price}}</text>
+    </view>
+    <view class='rel_info' bindtap='phone_call'>
+      <text>联系方式</text>
+      <text class='rel_info_r'><text class='iconfont icon-dianhua'></text> {{order_detail.tel}}</text>
+    </view>
+
+  </view>
+  <view class='agree_box'>
+    <view class='iconfont  {{agree?"icon-tongyi":"icon-icon-butongyixuanding"}}' bindtap='agreen_fun'></view>
+    <view class='agreement' bindtap='agreement_fun'>我已同意
+      <text>《用户使用协议》</text>
+    </view>
+  </view>
+  <view class='pay_mold' wx:if='{{pay_suc}}'>
+    <view class='mold_item'>您的信息已提交成功，请等待审核</view>
+  </view>
+  <button class='pay_btn' form-type="submit">确认应邀</button>
+</form>

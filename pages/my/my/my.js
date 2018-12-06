@@ -57,6 +57,7 @@ Page({
     } else {
       wx.showToast({
         title: '客服当前不在线',
+        icon: 'none'
       })
     }
   },
@@ -118,10 +119,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
+ 
 })

@@ -1,7 +1,7 @@
 <!--pages/my/my_info/my_info.wxml-->
-<view class='tips'>
+<view class='tips' wx:if='{{shwo_tip}}'>
   <view>完善个人信息</view>
-  <view class='save'>保存</view>
+  <view class='iconfont icon-quxiao' bindtap='close_tip'></view>
 </view>
 <view class='info_list'>
   <view class='info_item'>
@@ -41,7 +41,7 @@
   <view class='info_item'>
     <text>家乡</text>
     <view>
-      <picker mode='region' bindchange='bindRegionChange'  value="{{region}}">
+      <picker mode='region' bindchange='bindRegionChange' value="{{region}}">
         <text class='info_right'>{{city}}</text>
       </picker>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
@@ -64,7 +64,7 @@
   <view class='info_item'>
     <text>联系方式</text>
     <view>
-      <text class='info_right'>{{userInfo.tel?userInfo.tel:''}}</text>
+      <input class='info_right' value="{{userInfo.tel?userInfo.tel:''}}" bindinput='phone_fun'></input>
       <text class='iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing'></text>
     </view>
   </view>
@@ -79,3 +79,4 @@
     </view>
   </view>
 </view>
+<view class='save' bindtap='save_fun'>保存</view>

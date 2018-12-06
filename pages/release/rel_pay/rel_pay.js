@@ -1,7 +1,6 @@
 // pages/release/rel_pay/rel_pay.js
 var network = require("../../../utils/network.js");
 Page({
-
   data: {
     order_sn: "",
     orderInfo: [],
@@ -84,16 +83,16 @@ Page({
                   signType: 'MD5',
                   paySign: res.data.data.paySign,
                   success(res_pay) {
-                    this.setData({
+                    that.setData({
                       pay_suc: true
                     });
                     setTimeout(() => {
-                      this.setData({
+                      that.setData({
                         pay_suc: false
                       })
-                    }, 2000)
+                    }, 3000)
                     wx.switchTab({
-                      url: '../release/release',
+                      url: '../index/index',
                     })
                     // wx.showModal({
                     //   title: '发布成功',
@@ -185,10 +184,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
-  }
 })

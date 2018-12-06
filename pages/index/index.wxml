@@ -57,7 +57,7 @@
       <view class='all'>
         <view class='district_box'>
           <view class='district_item {{all?"district_item_active":""}}' catchtap='all_index_fun'>全部</view>
-          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}' catchtap='all_fun'>{{item.fullname}}</view>
+          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}' catchtap='all_fun'>{{item.fullname?item.fullname:item.title}}</view>
         </view>
       </view>
     </view>
@@ -89,16 +89,18 @@
             <view class='index_time'>{{item.create_time}}</view>
           </view>
         </view>
-        <view class='index_title'>{{item.title}}</view>
-        <view class='index_content'>{{item.content}}</view>
+        <view bindtap='apply_fun' data-order_sn='{{item.order_sn}}' data-id='{{item.id}}'>
+          <view class='index_title'>{{item.title}}</view>
+          <view class='index_content'>{{item.content}}</view>
+        </view>
         <view class='index_btns'>
           <view class='address'>
             <view class='iconfont icon-location'></view>
             <text>{{item.city}}距离 {{item.juli}}km</text>
           </view>
           <view class='btns'>
-            <button open-type='share' class='button linear'>分享</button>
-            <view class='button linear'>应邀</view>
+            <button open-type='share' class='button linear' data-item='{{item}}'>分享</button>
+            <view class='button linear' bindtap='apply_fun' data-order_sn='{{item.order_sn}}' data-id='{{item.id}}'>应邀</view>
           </view>
         </view>
       </view>

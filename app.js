@@ -23,6 +23,7 @@ App({
     }, //发布分类
     world_index: 1, //默认社区
     contact: '', //电话号码
+    openid:'',//个人openid
   },
   onShow: function() {
     let that = this;

@@ -14,6 +14,7 @@
     "pages/my/my_demand/my_demand",
     "pages/my/my_account/my_account",
     "pages/my/my_vip/my_vip",
+    "pages/my/agreement/agreement",
     "pages/my/my_invitation/my_invitation",
     "pages/my/my_auth/my_auth",
     "pages/my/my_account_detail/my_account_detail",
@@ -25,10 +26,11 @@
     "pages/index/prize_detail/prize_detail",
     "pages/my/my_cash/my_cash",
     "pages/my/mywork/mywork",
-    "pages/my/my_resume/my_resume"
+    "pages/my/my_resume/my_resume",
+    "pages/index/invited/invited"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "近帮社区",
     "navigationBarTextStyle": "black",

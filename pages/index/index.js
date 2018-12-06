@@ -15,7 +15,7 @@ Page({
     district: '',
     lat: '',
     lon: '',
-    adcode: '',
+    city_code: '',
     show_mold: false,
     show_community: true,
     showscreen: false,
@@ -35,7 +35,8 @@ Page({
     fujin: true,
     selected_index: -1,
     all_index: -1,
-    all:true
+    all: true,
+    fujinlist: []
   },
   onLoad: function(options) {
     // console.log(options)
@@ -43,6 +44,8 @@ Page({
     this.getcity();
     // this.getcitylist();
     this.getWorldList();
+    this.getMyopenid();
+    console.log(app.globalData.openid)
   },
   onShow: function() {
     this.getcity();
@@ -61,7 +64,6 @@ Page({
             token: res_token.data,
           },
           success(res) {
-
             var slidelist = res.data.data;
             if (res.data.code == 1) {
               for (var i in slidelist) {
@@ -95,13 +97,25 @@ Page({
             longitude: longitude
           },
           success: (res_map) => {
-            console.log(res_map);
+            // console.log(res_map);
+            var fujinlist = [
+              res_map.result.address_reference.crossroad,
+              res_map.result.address_reference.famous_area,
+              res_map.result.address_reference.landmark_l1,
+              res_map.result.address_reference.landmark_l2,
+              res_map.result.address_reference.street,
+              res_map.result.address_reference.street_number,
+              res_map.result.address_reference.town,
+            ];
+            // console.log(fujinlist)
             this.setData({
               city: res_map.result.ad_info.city,
               district: res_map.result.ad_info.district,
-              adcode: res_map.result.ad_info.adcode,
+              city_code: res_map.result.ad_info.city_code,
               lat: latitude,
               lon: longitude,
+              down_list: fujinlist,
+              fujinlist: fujinlist,
             })
             this.getdistrict();
             this.getRlist();
@@ -131,13 +145,13 @@ Page({
   // 获取城市的城镇
   getdistrict() {
     var that = this;
-    // this.setData({
-    //   adcode: this.data.adcode.substring(3, -1)
-    // })
-    console.log(this.data.adcode)
+    this.setData({
+      city_code: this.data.city_code.substring(this.data.city_code.length - 6, this.data.city_code.length)
+    })
+    // console.log(this.data.city_code)
     map.getDistrictByCityId({
-      // id: this.data.adcode, // 对应城市ID
-      id: '120000',
+      id: this.data.city_code, // 对应城市ID
+      // id: "120000",
       success: function(res) {
         that.setData({
           district_list: res.result[0]
@@ -155,37 +169,39 @@ Page({
       // id: this.data.adcode, // 对应城市ID
       id: id,
       success: function(res) {
-        console.log(res)
+        // console.log(res)
         that.setData({
           down_list: res.result[0],
           fujin: false,
           selected_index: index,
-          all_index:-1,
-          all:true
+          all_index: -1,
+          all: true
         })
       },
     });
   },
   // 附近
   fujin_fun() {
+    var fujinlist = this.data.fujinlist;
+    // console.log(fujinlist)
     this.setData({
       fujin: true,
       selected_index: -1,
-      down_list: []
+      down_list: fujinlist
     })
   },
   // 全部选择
   all_fun(e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-      all_index:index,
+      all_index: index,
       all: false,
     })
   },
   // 全部
-  all_index_fun(){
+  all_index_fun() {
     this.setData({
-      all:true,
+      all: true,
       all_index: -1,
     })
   },
@@ -233,30 +249,7 @@ Page({
     })
     this.getWorldList();
   },
-  // 获取当前城市的城镇
-  // getcitylist() {
-  //   wx.getStorage({
-  //     key: 'token',
-  //     success: (res_token) => {
-  //       network.POST({
-  //         url: 'api/getCitylist',
-  //         header: 'application/x-www - form - urlencoded',
-  //         params: {
-  //           token: res_token.data,
-  //         },
-  //         success(res) {
-  //           // console.log(res);
-  //           if (res.data.code == 1) {
 
-  //             wx.hideLoading();
-  //           } else {
-  //             console.log(res);
-  //           }
-  //         }
-  //       })
-  //     },
-  //   })
-  // },
   // 获取社区列表
   getRlist() {
     var that = this;
@@ -328,7 +321,7 @@ Page({
             county: that.data.county_status,
           },
           success(res) {
-            console.log(res);
+            // console.log(res);
             if (res.data.code == 1) {
               var list = res.data.data.list;
               for (var i in list) {
@@ -377,5 +370,92 @@ Page({
         showchoose: false
       })
     }
-  }
+  },
+  // 跳转应邀详情
+  apply_fun(e) {
+    var order_sn = e.currentTarget.dataset.order_sn;
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: './invited/invited?order_sn=' + order_sn + '&rid=' + id,
+    })
+  },
+  // 获取我的openid
+  getMyopenid() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'api/getMyOpenid',
+          header: 'application/x-www-form-urlencoded',
+          params: {
+            token: res_token.data,
+          },
+          success(res) {
+            // console.log(res)
+            if (res.data.code == 1) {
+              app.globalData.openid = res.data.data
+            }
+          }
+        })
+      },
+    })
+  },
+
+  // 分享
+  onShareAppMessage: function(options) {
+    // console.log(options)　
+    // 来自页面内的按钮的转发
+    if (options.from == 'button') {　　　　
+      var that = this;
+      var item = options.target.dataset.item;
+      // console.log(util.base_img_url + item.image.split('"')[1])
+      var shareObj = {
+        title: item.title,
+        desc: item.content,
+        path: '/pages/start/start?order_sn=' + item.order_sn,
+        imageUrl: util.base_img_url + item.image.split('"')[1] ? util.base_img_url + item.image.split('"')[1] : '',
+        success: function(res) {
+          if (res.errMsg == 'shareAppMessage:ok') {
+            wx.showToast({
+              title: '分享成功',
+            })
+          }
+        },
+        fail: function() {
+          if (res.errMsg == 'shareAppMessage:fail cancel') {
+            wx.showToast({
+              title: '取消分享',
+              icon: 'none'
+            })
+          } else if (res.errMsg == 'shareAppMessage:fail') {
+            wx.showToast({
+              title: '稍后再试',
+              icon: 'none'
+            })
+          }
+        },
+      };　
+      return shareObj;
+    } else {
+      return {
+        title: '近帮社区',
+        desc: '',
+        path: '/pages/start/start',
+      }
+    }
+  },
+
+  // 下拉刷新
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.setData({
+      get_rlist: [],
+      get_wlist: [],
+    })
+    this.getRlist();
+    this.getWorldList();
+    wx.stopPullDownRefresh();
+    wx.hideNavigationBarLoading();
+  },
 })

@@ -12,11 +12,12 @@
 }
 
 .save {
-  padding: 0 36rpx;
+  padding: 25rpx 36rpx;
   text-align: center;
-  height: 40rpx;
-  line-height: 40rpx;
-  font-size: 24rpx;
+  margin: 50rpx 25rpx;
+  /* height: 40rpx; */
+  /* line-height: 40rpx; */
+  font-size: 30rpx;
   color: #fff;
   background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, #fd4336, #fd5e2e); /* Opera 11.1 - 12.0 */
@@ -45,7 +46,7 @@
   color: #666;
   font-size: 24rpx;
   text-align: right;
-  flex: 1
+  flex: 1;
 }
 
 .icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing {

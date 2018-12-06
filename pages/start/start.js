@@ -12,10 +12,35 @@ Page({
     if (options.login_code == 3) {
       wx.showModal({
         title: '登录',
-        showCancel:false,
+        showCancel: false,
         content: '登录失效,点击立即开启,重启小程序',
-        success:function(res){
-          
+        success: function(res) {
+        }
+      })
+    } else {
+      wx.getStorage({
+        key: 'token',
+        success: (res) => {
+          wx.showLoading({
+            title: '正在启动',
+            icon: 'none'
+          })
+          if (options.order_sn){
+            wx.navigateTo({
+              url: '../index/invited/invited?order_sn='+ options.order_sn,
+            })
+          }else{
+            setTimeout(() => {
+              wx.hideLoading();
+              wx.switchTab({
+                url: '../index/index',
+              })
+            }, 1000)
+          }
+
+        },
+        fail: (erro) => {
+          console.log('未登录~')
         }
       })
     }
@@ -86,7 +111,7 @@ Page({
       title: '正在启动',
       icon: 'none'
     })
-    var post={
+    var post = {
       token: that.data.third_session,
       iv: that.data.iv,
       encryptedData: that.data.encryptedData

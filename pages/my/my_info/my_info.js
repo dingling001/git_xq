@@ -12,10 +12,13 @@ Page({
     sex_index: 0,
     nickname: '',
     age: [],
-    age_index: 11,
+    age_index: 0,
     jobList: [],
     region: [],
-    city: ''
+    city: '',
+    show_tip: true,
+    resume:'',
+    career:''
   },
   onLoad: function(options) {
     console.log(options)
@@ -33,7 +36,7 @@ Page({
       })
     };
     var agelist = []
-    for (var i = 1; i <= 120; i++) {
+    for (var i = 12; i <= 120; i++) {
       agelist.push(i)
     };
     this.setData({
@@ -42,9 +45,19 @@ Page({
     this.getJobList();
     // console.log(app.globalData.userInfo)
   },
+  // 关闭提示
+  close_tip() {
+    this.setData({
+      show_tip: false
+    })
+  },
   // 修改昵称
   nickname_fun(e) {
     nickname: e.detail.value
+  },
+  // 修改电话
+  phone_fun(e) {
+    phone: e.detail.value
   },
   // 性别选择
   sex_fun(e) {
@@ -96,6 +109,7 @@ Page({
       userInfo: app.globalData.userInfo
     });
   },
+
   // 选择城市
   bindRegionChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -103,6 +117,18 @@ Page({
       city: e.detail.value[2]
     })
     console.log(this.data.city)
+  },
+  // 保存
+  save_fun() {
+    var post = {
+      nickname: this.data.nickname,
+      gender: this.data.sex_index * 1 + 1,
+      age: this.data.age[this.data.age_index],
+      city: this.data.city,
+      resume: this.data.resume,
+      career: this.data.career
+
+    }
   },
   onReady: function() {
 
@@ -142,11 +168,4 @@ Page({
   onReachBottom: function() {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })
