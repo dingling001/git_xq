@@ -50,14 +50,14 @@
     <view class='city_title'>
       <view class='near'>
         <view class='district_box'>
-          <view class='district_item {{fujin?"district_item_active":""}}' catchtap='fujin_fun'>附近</view>
+          <view class='district_item {{fujin?"district_item_active":""}}' catchtap='fujin_fun'>当前</view>
           <view class='district_item {{selected_index==index?"district_item_active":""}}' wx:for='{{district_list}}' wx:key='{{item.id}}' catchtap='getdowntown' data-code='{{item.id}}' data-index='{{index}}'>{{item.fullname}}</view>
         </view>
       </view>
       <view class='all'>
         <view class='district_box'>
           <view class='district_item {{all?"district_item_active":""}}' catchtap='all_index_fun'>全部</view>
-          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}' catchtap='all_fun'>{{item.fullname?item.fullname:item.title}}</view>
+          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}'  data-lat='{{item.location.lat}}' data-lon='{{item.location.lng}}' data-fullname='{{item.fullname?item.fullname:item.district}}' catchtap='all_fun'>{{item.fullname?item.fullname:item.district}}</view>
         </view>
       </view>
     </view>

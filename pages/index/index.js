@@ -39,13 +39,38 @@ Page({
     fujinlist: []
   },
   onLoad: function(options) {
-    // console.log(options)
+    console.log(options)
     this.slideShow();
-    this.getcity();
+
     // this.getcitylist();
     this.getWorldList();
-    this.getMyopenid();
-    console.log(app.globalData.openid)
+    // console.log(app.globalData.openid)
+    if (options.lat && options.lon) {
+      map.reverseGeocoder({
+        location: {
+          latitude: options.lat,
+          longitude: options.lon
+        },
+        success: (res_map) => {
+          // console.log(res_map);
+          var fujinlist = [res_map.result.ad_info]
+          // console.log(fujinlist)
+          this.setData({
+            city: res_map.result.ad_info.city.slice(0, res_map.result.ad_info.city.indexOf('市')),
+            district: res_map.result.ad_info.district,
+            city_code: res_map.result.ad_info.city_code,
+            lat: latitude,
+            lon: longitude,
+            down_list: fujinlist,
+            fujinlist: fujinlist,
+          })
+          this.getdistrict();
+          this.getRlist();
+        },
+      });
+    } else {
+      this.getcity();
+    }
   },
   onShow: function() {
     this.getcity();
@@ -98,18 +123,10 @@ Page({
           },
           success: (res_map) => {
             // console.log(res_map);
-            var fujinlist = [
-              res_map.result.address_reference.crossroad,
-              res_map.result.address_reference.famous_area,
-              res_map.result.address_reference.landmark_l1,
-              res_map.result.address_reference.landmark_l2,
-              res_map.result.address_reference.street,
-              res_map.result.address_reference.street_number,
-              res_map.result.address_reference.town,
-            ];
+            var fujinlist = [res_map.result.ad_info]
             // console.log(fujinlist)
             this.setData({
-              city: res_map.result.ad_info.city,
+              city: res_map.result.ad_info.city.slice(0, res_map.result.ad_info.city.indexOf('市')),
               district: res_map.result.ad_info.district,
               city_code: res_map.result.ad_info.city_code,
               lat: latitude,
@@ -193,10 +210,19 @@ Page({
   // 全部选择
   all_fun(e) {
     var index = e.currentTarget.dataset.index;
+    var lat = e.currentTarget.dataset.lat;
+    var lon = e.currentTarget.dataset.lon;
+    var fullname = e.currentTarget.dataset.fullname
     this.setData({
       all_index: index,
+      lat: lat,
+      lon: lon,
       all: false,
+      show_mold: false,
+      district: fullname,
+      showchoose: false
     })
+    this.getRlist();
   },
   // 全部
   all_index_fun() {
@@ -239,7 +265,8 @@ Page({
       show_community: true,
       show_mold: false
     })
-    this.getcity();
+    // this.getcity();
+    this.getRlist();
   },
   // 显示世界列表
   world() {
@@ -379,28 +406,7 @@ Page({
       url: './invited/invited?order_sn=' + order_sn + '&rid=' + id,
     })
   },
-  // 获取我的openid
-  getMyopenid() {
-    var that = this;
-    wx.getStorage({
-      key: 'token',
-      success: (res_token) => {
-        network.POST({
-          url: 'api/getMyOpenid',
-          header: 'application/x-www-form-urlencoded',
-          params: {
-            token: res_token.data,
-          },
-          success(res) {
-            // console.log(res)
-            if (res.data.code == 1) {
-              app.globalData.openid = res.data.data
-            }
-          }
-        })
-      },
-    })
-  },
+
 
   // 分享
   onShareAppMessage: function(options) {
@@ -440,7 +446,7 @@ Page({
     } else {
       return {
         title: '近帮社区',
-        desc: '',
+        desc: '需求无限，一呼百应',
         path: '/pages/start/start',
       }
     }

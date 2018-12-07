@@ -139,46 +139,8 @@ Page({
       Index = e.currentTarget.dataset.index || '',
       that = this;
     let city = this.data.citySel;
-    switch (types) {
-      case 'locate':
-        //定位内容
-        city = this.data.locateCity;
-        break;
-      case 'national':
-        //全国
-        city = '全国';
-        break;
-      case 'new':
-        //热门城市
-        city = val;
-        break;
-      case 'list':
-        //城市列表
-        city = val.cityName;
-        break;
-    }
-    console.log(this.data.citySel)
-    if (city) {
-      wx.setStorage({
-        key: 'city',
-        data: city
-      })
-      //点击后给父组件可以通过bindcitytap事件，获取到cityname的值，这是子组件给父组件传值和触发事件的方法
-      // this.triggerEvent('citytap', {
-      //   cityname: city
-      // });
-      wx.getStorage({
-        key: 'city',
-        success: (res) => {
-          wx.navigateTo({
-            url: '../index?cityname=' + city,
-          })
-        },
-      })
-    } else {
-      console.log('还没有');
-      this.getLocate();
-    }
+
+    console.log(val)
 
   },
   //点击城市字母
@@ -224,10 +186,16 @@ Page({
     }
   },
   getCityList() {
+    var that = this
     map.getCityList({
       success: function(res) {
         console.log(res);
         var citys = [];
+        var city_a = {
+          "letter": "A",
+          "data": []
+        };
+        var city_b = [];
         var data = res.result[0];
         for (var i in data) {
           // if()
@@ -235,11 +203,42 @@ Page({
             "letter": data[i].pinyin[0].substring(0, 1).toUpperCase(),
             "data": [{
               "id": data[i].id,
-              "cityName": data[i].name
+              "cityName": data[i].name,
+              "lat": data[i].location.lat,
+              "lon": data[i].location.lng
             }]
           })
+          if (data[i].letter == 'A') {
+            console.log(citys[i])
+            var a = citys[i].data
+            for (var ai in a) {
+
+              console.log(ai)
+              city_a.data.push({
+                "id": a[ai].id,
+                "cityName": a[a].cityName,
+                "lat": a[ai].location.lat,
+                "lon": a[ai].location.lng
+              })
+            }
+          } else if (citys[i].letter == 'B') {
+            city_b.push({
+              "letter": data[i].pinyin[0].substring(0, 1).toUpperCase(),
+              "data": [{
+                "id": data[i].id,
+                "cityName": data[i].name,
+                "lat": data[i].location.lat,
+                "lon": data[i].location.lng
+              }]
+            })
+          }
           // citys = res.result[0].sort()
         }
+        citys = citys.concat(city_a).concat(city_b)
+        console.log(city_a)
+        that.setData({
+          citylist: citys
+        })
         console.log(citys);
         // citys = res.result[0].letter.sort()
       },

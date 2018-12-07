@@ -6,7 +6,6 @@ Page({
 
   data: {
     order_sn: '',
-    rid: '',
     order_detail: [],
     agree: false,
     auth_status: false
@@ -16,13 +15,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(options)
-    if (options) {
+    console.log(options)
+    if (options.order_sn) {
       this.setData({
-        order_sn: options.order_sn,
-        rid: options.rid
+        order_sn: options.order_sn
       })
       this.getInvited();
+    } else {
+      wx.showToast({
+        title: '订单已失效',
+        icon: 'none'
+      });
+      setTimeout(() => {
+        wx.switchTab({
+          url: '../index',
+        }, 1000)
+      })
     }
     this.ifrealnameAuth();
   },
@@ -46,6 +54,17 @@ Page({
             if (res.data.code == 1) {
               that.setData({
                 order_detail: list
+              })
+            } else {
+              console.log(res)
+              wx.showToast({
+                title: '订单已失效',
+                icon: 'none'
+              });
+              setTimeout(() => {
+                wx.switchTab({
+                  url: '../index',
+                }, 2500)
               })
             }
             // console.log(that.data.order_detail)

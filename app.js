@@ -3,16 +3,8 @@ var network = require("./utils/network.js");
 
 App({
   onLaunch: function() {
-    // 展示本地存储能力
-
     this.getSettings()
-    // 登录
-    wx.login({
-      success: res => {
-
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    this.getMyopenid()
   },
   globalData: {
     isIphoneX: false,
@@ -23,7 +15,7 @@ App({
     }, //发布分类
     world_index: 1, //默认社区
     contact: '', //电话号码
-    openid:'',//个人openid
+    openid: '', //个人openid
   },
   onShow: function() {
     let that = this;
@@ -54,6 +46,28 @@ App({
               that.globalData.contact = res.data.data.contact
             } else {
               console.log(res);
+            }
+          }
+        })
+      },
+    })
+  },
+  // 获取我的openid
+  getMyopenid() {
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: (res_token) => {
+        network.POST({
+          url: 'api/getMyOpenid',
+          header: 'application/x-www-form-urlencoded',
+          params: {
+            token: res_token.data,
+          },
+          success(res) {
+            // console.log(res)
+            if (res.data.code == 1) {
+              that.globalData.openid = res.data.data
             }
           }
         })
