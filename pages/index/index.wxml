@@ -57,7 +57,15 @@
       <view class='all'>
         <view class='district_box'>
           <view class='district_item {{all?"district_item_active":""}}' catchtap='all_index_fun'>全部</view>
-          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}'  data-lat='{{item.location.lat}}' data-lon='{{item.location.lng}}' data-fullname='{{item.fullname?item.fullname:item.district}}' catchtap='all_fun'>{{item.fullname?item.fullname:item.district}}</view>
+          <block wx:if='{{down_list.length==0}}'>
+            <view class='district_item'>
+              该地区暂无选择
+            </view>
+          </block>
+          <block wx:else>
+            <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}' data-lat='{{item.location.lat}}' data-lon='{{item.location.lng}}' data-fullname='{{item.fullname?item.fullname:item.district}}'
+              catchtap='all_fun'>{{item.fullname?item.fullname:item.district}}</view>
+          </block>
         </view>
       </view>
     </view>

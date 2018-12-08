@@ -39,28 +39,31 @@ Page({
     fujinlist: []
   },
   onLoad: function(options) {
-    console.log(options)
     this.slideShow();
-
     // this.getcitylist();
     this.getWorldList();
-    // console.log(app.globalData.openid)
-    if (options.lat && options.lon) {
+    console.log(app.globalData)
+
+  },
+  onShow: function() {
+    var lat = app.globalData.lat;
+    var lon = app.globalData.lon;
+    if (lat && lon) {
       map.reverseGeocoder({
         location: {
-          latitude: options.lat,
-          longitude: options.lon
+          latitude: lat,
+          longitude:lon
         },
         success: (res_map) => {
-          // console.log(res_map);
+          console.log(res_map);
           var fujinlist = [res_map.result.ad_info]
           // console.log(fujinlist)
           this.setData({
             city: res_map.result.ad_info.city.slice(0, res_map.result.ad_info.city.indexOf('市')),
             district: res_map.result.ad_info.district,
             city_code: res_map.result.ad_info.city_code,
-            lat: latitude,
-            lon: longitude,
+            lat: lat,
+            lon: lon,
             down_list: fujinlist,
             fujinlist: fujinlist,
           })
@@ -71,9 +74,6 @@ Page({
     } else {
       this.getcity();
     }
-  },
-  onShow: function() {
-    this.getcity();
     wx.showTabBar()
   },
   // 获取首页轮播图
