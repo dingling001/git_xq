@@ -36,7 +36,7 @@
   </view>
 </view>
 <view class='agree_box'>
-  <view class='iconfont icon-tongyi {{agree?"color":""}}' bindtap='agreen_fun'></view>
+  <view class='iconfont  {{agree?"icon-tongyi":"icon-icon-butongyixuanding"}}' bindtap='agreen_fun'></view>
   <view class='agreement' bindtap='agreement_fun'>我已同意
     <text>《用户使用协议》</text> 
     </view>

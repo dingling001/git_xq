@@ -7,7 +7,7 @@ function formatDate(date, fmt) {
     'h+': date.getHours(), //小时
     'm+': date.getMinutes(), //分  
     's+': date.getSeconds(), //秒
-    "q+": Math.floor((date.getMonth() + 3) / 3), //季度   
+    "q+": Math.floor((date.getMonth() + 3) / 3), 
     "S": date.getMilliseconds() //毫秒   
   };
   if (/(y+)/.test(fmt)) { //年份
@@ -47,6 +47,7 @@ const formatTime = (date, type, num) => {
     } else if (num + hour < 24) {
       hour = num + hour
     }
+    console.log([year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':'))
     return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
   }
 }

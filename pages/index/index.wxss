@@ -133,9 +133,11 @@ page {
   font-size: 22rpx;
   margin-left: 11rpx;
 }
-.index_info{
+
+.index_info {
   flex: 1;
 }
+
 .name_img {
   display: flex;
   align-items: center;
@@ -241,7 +243,7 @@ page {
   align-items: center;
   justify-content: space-between;
   padding: 0 20rpx 0 0;
-    margin: 50rpx 0 0 0;
+  margin: 50rpx 0 0 0;
 }
 
 .btns {
@@ -314,7 +316,6 @@ page {
 .btns {
   display: flex;
   align-items: center;
-
   border-top: 1px solid #f3f5f7;
 }
 
@@ -363,7 +364,7 @@ page {
 .all .district_box .district_item {
   border-bottom: 1px #f3f5f7 solid;
   text-align: left;
- padding: 22rpx 30rpx;
+  padding: 22rpx 30rpx;
 }
 
 .district_box .district_title {
@@ -373,6 +374,12 @@ page {
 .district_item_active {
   background-color: #fff;
 }
-.all .district_item_active{
+
+.all .district_item_active {
   color: #fd4336;
+}
+
+.sex_list  .sex_status {
+  background-color: #fd4336;
+  color: #fff;
 }

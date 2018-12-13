@@ -37,6 +37,15 @@ Page({
     token: '',
     world: ['', '社群', '世界'],
     world_index: 1,
+    show_tip: false,
+    marginTop: true
+  },
+  // 关闭提示
+  close_tip() {
+    this.setData({
+      show_tip: true,
+      marginTop: false
+    })
   },
   // 获取费率
   getSettings() {

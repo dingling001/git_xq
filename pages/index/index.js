@@ -36,7 +36,33 @@ Page({
     selected_index: -1,
     all_index: -1,
     all: true,
-    fujinlist: []
+    fujinlist: [],
+    sex_arr: [{
+        id: 1,
+        name: '男'
+      },
+      {
+        id: 2,
+        name: '女'
+      },
+    ],
+    sex_index: 0,
+    age_arr: [{
+        id: 0,
+        age: '25岁以下'
+      },
+      {
+        id: 1,
+        age: '25岁-35岁'
+      },
+      {
+        id: 2,
+        age: '35岁以上'
+      },
+    ],
+    age_index: -1,
+    age: '',
+    age1: ''
   },
   onLoad: function(options) {
     this.slideShow();
@@ -52,15 +78,15 @@ Page({
       map.reverseGeocoder({
         location: {
           latitude: lat,
-          longitude:lon
+          longitude: lon
         },
         success: (res_map) => {
-          console.log(res_map);
+          // console.log(res_map);
           var fujinlist = [res_map.result.ad_info]
           // console.log(fujinlist)
           this.setData({
-            city: res_map.result.ad_info.city.slice(0, res_map.result.ad_info.city.indexOf('市')),
-            district: res_map.result.ad_info.district,
+            city: res_map.result.ad_info.city,
+            district: res_map.result.ad_info.district.slice(0, res_map.result.ad_info.city.indexOf('市')),
             city_code: res_map.result.ad_info.city_code,
             lat: lat,
             lon: lon,
@@ -170,6 +196,7 @@ Page({
       id: this.data.city_code, // 对应城市ID
       // id: "120000",
       success: function(res) {
+        // console.log(res)
         that.setData({
           district_list: res.result[0]
         })
@@ -186,7 +213,6 @@ Page({
       // id: this.data.adcode, // 对应城市ID
       id: id,
       success: function(res) {
-        // console.log(res)
         that.setData({
           down_list: res.result[0],
           fujin: false,
@@ -397,6 +423,49 @@ Page({
         showchoose: false
       })
     }
+  },
+  // 性别选择
+  sex_fun(e) {
+    var id = e.target.dataset.id;
+    // console.log(e)
+    this.setData({
+      sex_index: id
+    })
+  },
+  // 年龄选择
+  age_fun(e) {
+    var id = e.target.dataset.id;
+    // console.log(e)
+    this.setData({
+      age_index: id
+    })
+  },
+  // 重置选项
+  reset_fun() {
+    this.setData({
+      age_index: -1,
+      sex_index: -1,
+    })
+  },
+  // 确定筛选条件
+  entrue_fun() {
+    console.log(this.data.sex_index);
+    console.log(this.data.age_index)
+    if (this.data.show_community) {
+      this.setData({
+        gender: this.data.sex_index,
+        age: this.data.age_index
+      })
+      this.getRlist();
+    } else {
+      this.setData({
+        gender1: this.data.sex_index,
+        age1: this.data.age_index
+      })
+      this.getWorldList();
+    }
+
+
   },
   // 跳转应邀详情
   apply_fun(e) {

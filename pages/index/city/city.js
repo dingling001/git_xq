@@ -40,11 +40,11 @@ Page({
   getLocate() {
     let that = this;
     new qqmap().getLocateInfo().then(function(val) { //这个方法在另一个文件里，下面有贴出代码
-      console.log(val);
+      // console.log(val);
       if (val.indexOf('市') !== -1) { //这里是去掉“市”这个字
         // console.log(val.indexOf('市') - 1);
         val = val.slice(0, val.indexOf('市'));
-        console.log(val);
+        // console.log(val);
       }
       that.setData({
         locateCity: val
@@ -77,7 +77,7 @@ Page({
     })
     map.getCityList({
       success: function(res) {
-        console.log(res);
+        // console.log(res);
         var citys = [];
         var city_a = {
             "letter": "A",

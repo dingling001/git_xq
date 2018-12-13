@@ -1,8 +1,7 @@
 <!--pages/release/release.wxml-->
-<view class='rel_tips'>请尽量完善您的需求</view>
+<view class='rel_tips' hidden='{{show_tip}}' bindtap='close_tip'><text>请尽量完善您的需求</text><view class='iconfont icon-quxiao'></view></view>
 <scroll-view scroll-y='true'>
-  <form bindsubmit='release_fun' report-submit='true'>
-
+  <form bindsubmit='release_fun' report-submit='true' class='{{marginTop?"marginTop":""}}'>
     <view class='rel_item border1'>
       <text>需求标题</text>
       <input placeholder='请少于30字' placeholder-class='rel_input' type='text' maxlength='30' auto-focus bindinput='title_input'></input>

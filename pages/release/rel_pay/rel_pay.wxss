@@ -128,7 +128,7 @@
   align-items: center;
   justify-content: center;
 }
-.color{
+.icon-tongyi{
   color: #FD4336;
 }
 .agreement text{

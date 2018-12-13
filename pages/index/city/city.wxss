@@ -19,18 +19,19 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
 
-}
-.city_locate_text{
+.city_locate_text {
   font-size: 30rpx;
- color: #fd4336;
+  color: #fd4336;
 }
+
 .letter_item {
   flex: 1;
   display: block;
   font-size: 24rpx;
   text-align: center;
-    color: #fd4336;
+  color: #fd4336;
 }
 
 .city_locate, .national {

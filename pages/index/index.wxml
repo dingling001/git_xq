@@ -6,11 +6,11 @@
   </view>
   <view class='city_box'>
     <navigator class='city' hover-class='none' url='city/city'>
-      <view class='iconfont icon-location'></view>{{city}}
+      <view class='iconfont icon-location'></view>{{city?city:'定位中...'}}
     </navigator>
     <!-- <picker mode='region' class='city'>{{city}}</picker> -->
     <view class='city' bindtap='choose'>
-      {{district}}
+      {{district?district:'暂未开通'}}
       <view class='iconfont {{showchoose?"icon-arrLeft-fill1":"icon-arrLeft-fill"}}'></view>
     </view>
     <view class='city' bindtap='screen'>
@@ -31,18 +31,18 @@
     <view class='screen_box'>
       <view class='sex_title'>性别要求</view>
       <view class='sex_list'>
-        <view>男</view>
-        <view>女</view>
+        <view wx:for='{{sex_arr}}' wx:key='{{item.id}}' class='{{sex_index==item.id?"sex_status":""}}' catchtap='sex_fun' data-id='{{item.id}}'>{{item.name}}</view>
+        <!-- <view>女</view> -->
       </view>
       <view class='sex_title'>年龄要求</view>
       <view class='sex_list'>
-        <view>25岁以下</view>
-        <view>25岁-35岁</view>
-        <view>35岁以上</view>
+        <view wx:for='{{age_arr}}' wx:key='{{item.id}}' class='{{age_index==item.id?"sex_status":""}}' catchtap='age_fun' data-id='{{item.id}}'>{{item.age}}</view>
+        <!-- <view>25岁-35岁</view>
+        <view>35岁以上</view> -->
       </view>
       <view class='btns'>
-        <view>重置</view>
-        <view class='entrue'>确定</view>
+        <view catchtap='reset_fun'>重置</view>
+        <view class='entrue' bindtap='entrue_fun'>确定</view>
       </view>
     </view>
   </view>
@@ -57,15 +57,15 @@
       <view class='all'>
         <view class='district_box'>
           <view class='district_item {{all?"district_item_active":""}}' catchtap='all_index_fun'>全部</view>
-          <block wx:if='{{down_list.length==0}}'>
+          <!-- <block wx:if='{{down_list.length==0}}'>
             <view class='district_item'>
               该地区暂无选择
             </view>
           </block>
-          <block wx:else>
-            <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list}}' wx:key='{{item.id}}' data-lat='{{item.location.lat}}' data-lon='{{item.location.lng}}' data-fullname='{{item.fullname?item.fullname:item.district}}'
-              catchtap='all_fun'>{{item.fullname?item.fullname:item.district}}</view>
-          </block>
+          <block wx:else> -->
+          <view class='district_item {{all_index==index?"district_item_active":""}}' data-index='{{index}}' wx:for='{{down_list.length>1?down_list:district_list}}' wx:key='{{item.id}}' data-lat='{{item.location.lat}}' data-lon='{{item.location.lng}}' data-fullname='{{item.fullname?item.fullname:item.district}}'
+            catchtap='all_fun'>{{item.fullname?item.fullname:item.district}}</view>
+          <!-- </block> -->
         </view>
       </view>
     </view>
