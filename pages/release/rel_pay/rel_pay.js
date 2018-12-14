@@ -53,6 +53,25 @@ Page({
       },
     })
   },
+  // 预览
+  previewImage_fun(e) {
+    var index = e.currentTarget.dataset.index;
+    // console.log(this.data.img_list)
+    for (var i in this.data.order_detail.image) {
+      var imgs = this.data.order_detail.image;
+      console.log(imgs)
+      // if (imgs[i].indexOf(util.base_img_url) == -1) {
+      //   imgs[i] = util.base_img_url + imgs[i]
+      // }
+      this.setData({
+        img_list: imgs
+      })
+    }
+    wx.previewImage({
+      current: this.data.order_detail.image[index], // 当前显示图片的http链接
+      urls: this.data.order_detail.image // 需要预览的图片http链接列表
+    })
+  },
   // 订单支付
   pay_order() {
     var that = this;
@@ -92,7 +111,7 @@ Page({
                       })
                     }, 3000)
                     wx.switchTab({
-                      url: '../index/index',
+                      url: '../../index/index',
                     })
                     // wx.showModal({
                     //   title: '发布成功',

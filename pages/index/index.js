@@ -22,8 +22,8 @@ Page({
     showchoose: false,
     page: 1,
     page1: 1,
-    perpage: 10,
-    perpage1: 10,
+    perpage: 5,
+    perpage1: 5,
     get_rlist: [],
     get_wlist: [],
     city_status: 0,
@@ -85,8 +85,8 @@ Page({
           var fujinlist = [res_map.result.ad_info]
           // console.log(fujinlist)
           this.setData({
-            city: res_map.result.ad_info.city,
-            district: res_map.result.ad_info.district.slice(0, res_map.result.ad_info.city.indexOf('市')),
+            city: res_map.result.ad_info.city.slice(0, res_map.result.ad_info.city.indexOf('市')),
+            district: res_map.result.ad_info.district,
             city_code: res_map.result.ad_info.city_code,
             lat: lat,
             lon: lon,
@@ -287,24 +287,32 @@ Page({
   },
   // 显示社群列表
   community() {
+
     this.setData({
       show_community: true,
-      show_mold: false
+      show_mold: false,
+      showscreen: false,
+      showchoose: false
     })
     // this.getcity();
     this.getRlist();
+    wx.showTabBar()
   },
   // 显示世界列表
   world() {
+
     this.setData({
       show_community: false,
-      show_mold: false
+      show_mold: false,
+      showscreen: false,
+      showchoose: false
     })
     this.getWorldList();
+    wx.showTabBar()
   },
 
   // 获取社区列表
-  getRlist() {
+  getRlist(page) {
     var that = this;
     that.setData({
       city_status: 1,
@@ -321,7 +329,7 @@ Page({
           header: 'application/x-www - form - urlencoded',
           params: {
             token: res_token.data,
-            page: that.data.page,
+            page: page,
             perpage: that.data.perpage,
             city: that.data.city_status,
             county: that.data.county_status,
@@ -444,13 +452,18 @@ Page({
   reset_fun() {
     this.setData({
       age_index: -1,
-      sex_index: -1,
+      sex_index: '',
     })
+    if (this.data.show_community) {
+      this.getRlist();
+    } else {
+      this.getWorldList();
+    }
   },
   // 确定筛选条件
   entrue_fun() {
-    console.log(this.data.sex_index);
-    console.log(this.data.age_index)
+    // console.log(this.data.sex_index);
+    // console.log(this.data.age_index)
     if (this.data.show_community) {
       this.setData({
         gender: this.data.sex_index,
@@ -533,4 +546,17 @@ Page({
     wx.stopPullDownRefresh();
     wx.hideNavigationBarLoading();
   },
+  onReachBottom() {
+    console.log(this.data.show_community)
+    // if (this.data.show_community) {
+    //   if (!this.loading && this.data.page < this.data.pages) {
+    //     this.getRlist(this.data.page + 1)
+    //   }
+    // } else {
+    //   if (!this.loading && this.data.page < this.data.pages) {
+    //     this.getRlist(this.data.page + 1)
+    //   }
+    //   this.getWorldList();
+    // }
+  }
 })

@@ -134,3 +134,31 @@
 .agreement text{
    color: #FD5E2E;
 }
+.imgs_box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30rpx 20rpx;
+  border-bottom: 1px solid #f3f5f7;
+  /* background-color: rgba(255, 255, 200, 0.6) */
+}
+
+.imgs_box image {
+  width: 100%;
+}
+
+.add_photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150rpx;
+  width: 150rpx;
+  font-size: 22rpx;
+  background-color: #f5f6f8;
+  border-radius: 10rpx;
+  color: #999;
+  overflow: hidden;
+  margin: 0 20rpx 10rpx 0;
+  position: relative;
+}

@@ -7,7 +7,7 @@ function formatDate(date, fmt) {
     'h+': date.getHours(), //小时
     'm+': date.getMinutes(), //分  
     's+': date.getSeconds(), //秒
-    "q+": Math.floor((date.getMonth() + 3) / 3), 
+    "q+": Math.floor((date.getMonth() + 3) / 3),
     "S": date.getMilliseconds() //毫秒   
   };
   if (/(y+)/.test(fmt)) { //年份
@@ -38,14 +38,20 @@ const formatTime = (date, type, num) => {
     return [year, month, day].map(formatNumber).join('-')
   } else if (type == 3) {
     num = parseInt(num) + 1
-    console.log(num)
-    console.log(num + hour)
     if (num + hour == 24) {
-      hour = 0
-      day = day + 1
-      console.log(hour)
+      hour = 0;
+      day = day + 1;
     } else if (num + hour < 24) {
       hour = num + hour
+    } else if (num + hour > 24 && num + hour < 48) {
+      day = day + 1;
+      hour = (num + hour) % 24
+    } else if (num + hour == 48) {
+      day = day + 2;
+      hour = 0;
+    } else if (num + hour > 48) {
+      day = day + 3;
+      hour = (num + hour) % 48
     }
     console.log([year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':'))
     return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')

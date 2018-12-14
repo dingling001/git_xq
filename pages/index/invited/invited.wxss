@@ -140,10 +140,64 @@
 .agreement text {
   color: #fd5e2e;
 }
-.rate{
+
+.rate {
   font-size: 20rpx;
-  color: #CCCCCC;
+  color: #ccc;
 }
-.rel_invited,.icon-dianhua{
+
+.rel_invited, .icon-dianhua {
   color: #fd5e2e;
+}
+
+.rel_title {
+  text-align: center;
+  padding: 15rpx;
+  font-size: 30rpx;
+  color: #fd4336;
+  font-weight: bold;
+}
+
+.imgs_box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30rpx 20rpx;
+  border-bottom: 1px solid #f3f5f7;
+  /* background-color: rgba(255, 255, 200, 0.6) */
+}
+
+.imgs_box image {
+  width: 100%;
+}
+
+.add_photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150rpx;
+  width: 150rpx;
+  font-size: 22rpx;
+  background-color: #f5f6f8;
+  border-radius: 10rpx;
+  color: #999;
+  overflow: hidden;
+  margin: 0 20rpx 10rpx 0;
+  position: relative;
+}
+
+form {
+  display: block;
+  padding-bottom: 100rpx;
+}
+
+/* .address {
+  padding: 32rpx 10rpx 32rpx 45rpx;
+} */
+
+.address .rel_info_r {
+  flex: 1;
+  padding: 0 0 0 10rpx;
+  text-align: right;
 }

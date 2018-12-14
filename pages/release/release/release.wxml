@@ -10,8 +10,8 @@
       <textarea placeholder='可以描述您的需求内容，需求要求，特别说明等（225字内）' placeholder-class='textarea' maxlength='225' bindinput='content_input'></textarea>
       <view class='imgs_box'>
         <view class='add_photo' wx:for='{{img_list}}' wx:for-item='item' wx:key='*this' wx:for-index='index'>
-          <image src='{{item}}' mode='widthFix'></image>
-          <view class='iconfont icon-quxiao' bindtap='delete_img' data-index='{{index}}'></view>
+          <image src='{{item}}' mode='widthFix' catchtap='previewImage_fun'  data-index='{{index}}'></image>
+          <view class='iconfont icon-quxiao' catchtap='delete_img' data-index='{{index}}'></view>
         </view>
         <view class='add_photo' bindtap='rel_img' wx:if='{{showAdd}}'>
           <view class='iconfont icon-zhaopianphoto177'></view>

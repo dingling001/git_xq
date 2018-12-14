@@ -37,72 +37,98 @@
       <text>发布时间</text>
       <text class='rel_info_r'>{{item.create_time}}</text>
     </view>
-    <view class='rel_info'>
+    <view class='rel_info status'>
       <text>发布状态</text>
-      <text class='rel_info_r'>待应邀</text>
+      <text class='rel_info_r' wx:if='{{item.status==-3}}'>已取消</text>
+      <text class='rel_info_r' wx:elif='{{item.status==-2}}'>无人接单</text>
+      <text class='rel_info_r' wx:elif='{{item.status==-1}}'>审核失败</text>
+      <text class='rel_info_r' wx:elif='{{item.status==0}}'>审核中</text>
+      <text class='rel_info_r' wx:elif='{{item.status==1}}'>待接单</text>
+      <text class='rel_info_r' wx:elif='{{item.status==2}}'>进行中</text>
+      <text class='rel_info_r' wx:elif='{{item.status==3}}'>已应邀</text>
+      <text class='rel_info_r' wx:elif='{{item.status==4}}'>已完成</text>
+      <text class='rel_info_r' wx:elif='{{item.status==5}}'>未完成</text>
+      <text class='rel_info_r' wx:elif='{{item.status==6}}'>其他</text>
+      <text class='rel_info_r' wx:else>未知</text>
     </view>
     <view class='rel_info'>
       <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
       <text class='rel_info_r'>￥{{item.real_price}}</text>
     </view>
-    <view class='rel_info status'>
-      <text class='rel_status'>取消</text>
-    </view>
-     <view class='rel_info status'>
-      <text class='rel_status'>待支付</text>
+    <view class='rel_info pay_status'>
+      <text>订单状态</text>
+      <text class='rel_status' wx:if='{{item.pay_status==0}}'>待支付</text>
+      <text class='rel_status' wx:elif='{{item.status==1}}'>已支付</text>
+      <text class='rel_status' wx:elif='{{item.status==2}}'>已退款</text>
+      <text class='rel_status' wx:else>订单已关闭</text>
     </view>
   </view>
 </view>
 <view class='rel_list' wx:elif='{{tab==1}}'>
- <view class='rel_item' wx:for='{{myrelyList}}' wx:key='*this'>
-    <view class='rel_content'>
-      <text>需求内容</text>
-      <view class='name_right'>
-        <view class='name_img'>
-          <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+  <block wx:if='{{list_s.length!=0}}'>
+    <view class='rel_item' wx:for='{{list_s}}' wx:key='*this'>
+      <view class='rel_content'>
+        <text>需求内容</text>
+        <view class='name_right'>
+          <view class='name_img'>
+            <image src='../../assets/imgs/rongyu.svg' mode='widthFix'></image>
+          </view>
+          <view class='rongyu'>60</view>
         </view>
-        <view class='rongyu'>60</view>
+      </view>
+      <view class='rel_text'>{{item.content}}</view>
+      <view class='rel_info'>
+        <text>需求标题</text>
+        <text class='rel_info_r'>{{item.title}}</text>
+      </view>
+      <view class='rel_info'>
+        <text>需求人数</text>
+        <text class='rel_info_r'>{{item.num}}人</text>
+      </view>
+      <view class='rel_info'>
+        <text>需求类型</text>
+        <text class='rel_info_r'>{{item.cate_name}}</text>
+      </view>
+      <view class='rel_info'>
+        <text>需求地点</text>
+        <text class='rel_info_r'>{{item.address}}</text>
+      </view>
+      <view class='rel_info'>
+        <text>发布时间</text>
+        <text class='rel_info_r'>{{item.create_time}}</text>
+      </view>
+      <view class='rel_info status'>
+        <text>发布状态</text>
+        <text class='rel_info_r' wx:if='{{item.status==-3}}'>已取消</text>
+        <text class='rel_info_r' wx:elif='{{item.status==-2}}'>无人接单</text>
+        <text class='rel_info_r' wx:elif='{{item.status==-1}}'>审核失败</text>
+        <text class='rel_info_r' wx:elif='{{item.status==0}}'>审核中</text>
+        <text class='rel_info_r' wx:elif='{{item.status==1}}'>待接单</text>
+        <text class='rel_info_r' wx:elif='{{item.status==2}}'>进行中</text>
+        <text class='rel_info_r' wx:elif='{{item.status==3}}'>已应邀</text>
+        <text class='rel_info_r' wx:elif='{{item.status==4}}'>已完成</text>
+        <text class='rel_info_r' wx:elif='{{item.status==5}}'>未完成</text>
+        <text class='rel_info_r' wx:elif='{{item.status==6}}'>其他</text>
+        <text class='rel_info_r' wx:else>未知</text>
+      </view>
+      <view class='rel_info'>
+        <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
+        <text class='rel_info_r'>￥{{item.real_price}}</text>
+      </view>
+      <view class='rel_info pay_status'>
+        <text>订单状态</text>
+        <text class='rel_status' wx:if='{{item.pay_status==0}}'>待支付</text>
+        <text class='rel_status' wx:elif='{{item.status==1}}'>已支付</text>
+        <text class='rel_status' wx:elif='{{item.status==2}}'>已退款</text>
+        <text class='rel_status' wx:else>订单已关闭</text>
       </view>
     </view>
-    <view class='rel_text'>{{item.content}}</view>
-    <view class='rel_info'>
-      <text>需求标题</text>
-      <text class='rel_info_r'>{{item.title}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>需求人数</text>
-      <text class='rel_info_r'>{{item.num}}人</text>
-    </view>
-    <view class='rel_info'>
-      <text>需求类型</text>
-      <text class='rel_info_r'>{{item.cate_name}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>需求地点</text>
-      <text class='rel_info_r'>{{item.address}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>发布时间</text>
-      <text class='rel_info_r'>{{item.create_time}}</text>
-    </view>
-    <view class='rel_info'>
-      <text>发布状态</text>
-      <text class='rel_info_r'>待应邀</text>
-    </view>
-    <view class='rel_info'>
-      <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
-      <text class='rel_info_r'>￥{{item.real_price}}</text>
-    </view>
-    <view class='rel_info status'>
-      <text class='rel_status'>取消</text>
-    </view>
-     <view class='rel_info status'>
-      <text class='rel_status'>待支付</text>
-    </view>
-  </view>
+  </block>
+  <view wx:else class='nodata'>暂无数据</view>
 </view>
 <view class='rel_list' wx:elif='{{tab==2}}'>
- <view class='rel_item' wx:for='{{myrelyList}}' wx:key='*this'>
+ <view wx:if='{{list_j.length==0}}' class='nodata'>暂无数据</view>
+  <view class='rel_item' wx:for='{{list_j}}' wx:key='*this'>
     <view class='rel_content'>
       <text>需求内容</text>
       <view class='name_right'>
@@ -133,24 +159,36 @@
       <text>发布时间</text>
       <text class='rel_info_r'>{{item.create_time}}</text>
     </view>
-    <view class='rel_info'>
+    <view class='rel_info status'>
       <text>发布状态</text>
-      <text class='rel_info_r'>待应邀</text>
+      <text class='rel_info_r' wx:if='{{item.status==-3}}'>已取消</text>
+      <text class='rel_info_r' wx:elif='{{item.status==-2}}'>无人接单</text>
+      <text class='rel_info_r' wx:elif='{{item.status==-1}}'>审核失败</text>
+      <text class='rel_info_r' wx:elif='{{item.status==0}}'>审核中</text>
+      <text class='rel_info_r' wx:elif='{{item.status==1}}'>待接单</text>
+      <text class='rel_info_r' wx:elif='{{item.status==2}}'>进行中</text>
+      <text class='rel_info_r' wx:elif='{{item.status==3}}'>已应邀</text>
+      <text class='rel_info_r' wx:elif='{{item.status==4}}'>已完成</text>
+      <text class='rel_info_r' wx:elif='{{item.status==5}}'>未完成</text>
+      <text class='rel_info_r' wx:elif='{{item.status==6}}'>其他</text>
+      <text class='rel_info_r' wx:else>未知</text>
     </view>
     <view class='rel_info'>
       <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
       <text class='rel_info_r'>￥{{item.real_price}}</text>
     </view>
-    <view class='rel_info status'>
-      <text class='rel_status'>取消</text>
-    </view>
-     <view class='rel_info status'>
-      <text class='rel_status'>待支付</text>
+    <view class='rel_info pay_status'>
+      <text>订单状态</text>
+      <text class='rel_status' wx:if='{{item.pay_status==0}}'>待支付</text>
+      <text class='rel_status' wx:elif='{{item.status==1}}'>已支付</text>
+      <text class='rel_status' wx:elif='{{item.status==2}}'>已退款</text>
+      <text class='rel_status' wx:else>订单已关闭</text>
     </view>
   </view>
 </view>
 <view class='rel_list' wx:else>
- <view class='rel_item' wx:for='{{myrelyList}}' wx:key='*this'>
+  <view wx:if='{{list_c.length==0}}' class='nodata'>暂无数据</view>
+  <view class='rel_item' wx:for='{{list_c}}' wx:key='*this'>
     <view class='rel_content'>
       <text>需求内容</text>
       <view class='name_right'>
@@ -181,19 +219,30 @@
       <text>发布时间</text>
       <text class='rel_info_r'>{{item.create_time}}</text>
     </view>
-    <view class='rel_info'>
+    <view class='rel_info status'>
       <text>发布状态</text>
-      <text class='rel_info_r'>待应邀</text>
+      <text class='rel_info_r' wx:if='{{item.status==-3}}'>已取消</text>
+      <text class='rel_info_r' wx:elif='{{item.status==-2}}'>无人接单</text>
+      <text class='rel_info_r' wx:elif='{{item.status==-1}}'>审核失败</text>
+      <text class='rel_info_r' wx:elif='{{item.status==0}}'>审核中</text>
+      <text class='rel_info_r' wx:elif='{{item.status==1}}'>待接单</text>
+      <text class='rel_info_r' wx:elif='{{item.status==2}}'>进行中</text>
+      <text class='rel_info_r' wx:elif='{{item.status==3}}'>已应邀</text>
+      <text class='rel_info_r' wx:elif='{{item.status==4}}'>已完成</text>
+      <text class='rel_info_r' wx:elif='{{item.status==5}}'>未完成</text>
+      <text class='rel_info_r' wx:elif='{{item.status==6}}'>其他</text>
+      <text class='rel_info_r' wx:else>未知</text>
     </view>
     <view class='rel_info'>
       <text>发布金额 <text class='fee'>（含10%手续费）</text></text>
       <text class='rel_info_r'>￥{{item.real_price}}</text>
     </view>
-    <view class='rel_info status'>
-      <text class='rel_status'>取消</text>
-    </view>
-     <view class='rel_info status'>
-      <text class='rel_status'>待支付</text>
+    <view class='rel_info pay_status'>
+      <text>订单状态</text>
+      <text class='rel_status' wx:if='{{item.pay_status==0}}'>待支付</text>
+      <text class='rel_status' wx:elif='{{item.status==1}}'>已支付</text>
+      <text class='rel_status' wx:elif='{{item.status==2}}'>已退款</text>
+      <text class='rel_status' wx:else>订单已关闭</text>
     </view>
   </view>
 </view>

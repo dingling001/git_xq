@@ -51,9 +51,15 @@ Page({
             console.log(res);
             var list = res.data.data
             list.create_time = util.formatDate(new Date(list.create_time * 1000), 'yyyy-MM-dd hh:mm');
+            for (let i in list.image) {
+              list.image[i] = util.base_img_url + list.image[i]
+            }
             if (res.data.code == 1) {
               that.setData({
                 order_detail: list
+              })
+              wx.setNavigationBarTitle({
+                title: list.title
               })
             } else {
               console.log(res)
@@ -100,6 +106,25 @@ Page({
         agree: false
       })
     }
+  },
+  // 预览
+  previewImage_fun(e) {
+    var index = e.currentTarget.dataset.index;
+    // console.log(this.data.img_list)
+    for (var i in this.data.order_detail.image) {
+      var imgs = this.data.order_detail.image;
+      console.log(imgs)
+      // if (imgs[i].indexOf(util.base_img_url) == -1) {
+      //   imgs[i] = util.base_img_url + imgs[i]
+      // }
+      this.setData({
+        img_list: imgs
+      })
+    }
+    wx.previewImage({
+      current: this.data.order_detail.image[index], // 当前显示图片的http链接
+      urls: this.data.order_detail.image // 需要预览的图片http链接列表
+    })
   },
   // 查看协议
   agreement_fun() {

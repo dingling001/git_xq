@@ -103,15 +103,17 @@
   font-size: 20rpx;
   color: #ccc;
 }
-
-.status {
-  justify-content: flex-end;
+.status .rel_info_r {
+  color: #fd4336;
 }
-.status:active{
+/* .pay_status {
+  justify-content: flex-end;
+} */
+.pay_status .rel_status:active{
   opacity: 0.7
 }
 
-.status .rel_status {
+.pay_status .rel_status {
   border: 1px solid #fd5e2e;
   padding: 7rpx 35rpx;
   text-align: center;

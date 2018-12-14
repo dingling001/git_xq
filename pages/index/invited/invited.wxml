@@ -2,6 +2,11 @@
 <form bindsubmit='invited_fun' report-submit>
 
   <view class='rel_item' >
+     <!-- <view class='rel_info'>
+      <text>需求标题</text>
+      <text class='rel_info_r'>{{order_detail.title}}</text>
+    </view> -->
+    <!-- <view class='rel_title'>{{order_detail.title}}</view> -->
     <view class='rel_content'>
       <text>需求内容</text>
       <view class='name_right'>
@@ -12,6 +17,15 @@
       </view>
     </view>
     <view class='rel_text'>{{order_detail.content}}</view>
+     <view class='imgs_box'>
+        <view class='add_photo' wx:for='{{order_detail.image}}' wx:for-item='item' wx:key='*this' wx:for-index='index' catchtap='previewImage_fun'  data-index='{{index}}'>
+          <image src='{{item}}' mode='widthFix' ></image>
+        </view>
+      </view>
+    <view class='rel_info'>
+      <text>需求人数</text>
+      <text class='rel_info_r'>{{order_detail.num}}人</text>
+    </view>
     <view class='rel_info'>
       <text>需求人数</text>
       <text class='rel_info_r'>{{order_detail.num}}人</text>
@@ -20,7 +34,7 @@
       <text>需求类型</text>
       <text class='rel_info_r'>{{order_detail.cate_name}}</text>
     </view>
-    <view class='rel_info'>
+    <view class='rel_info address'>
       <text>需求地点</text>
       <text class='rel_info_r'>{{order_detail.address}}</text>
     </view>

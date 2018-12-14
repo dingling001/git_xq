@@ -6,11 +6,15 @@ Page({
     tab: 0,
     page: 1,
     perpage: 10,
-    myrelyList: []
+    myrelyList: [],
+    list_s: [],
+    list_j: [],
+    list_c: []
   },
-
+  // 切换状态
   changeTab(e) {
     // console.log(e)
+    this.getmyRelease();
     this.setData({
       tab: e.target.dataset.tab
     })
@@ -18,6 +22,9 @@ Page({
   // 获取我的发布列表
   getmyRelease() {
     var that = this;
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.getStorage({
       key: 'token',
       success: (res_token) => {
@@ -30,18 +37,34 @@ Page({
             perpage: that.data.perpage
           },
           success(res) {
-            console.log(res);
+            // console.log(res);
             if (res.data.code == 1) {
               var list = res.data.data.list;
+              var list_s = [];
+              var list_j = [];
+              var list_c = [];
               for (var i in list) {
                 list[i].create_time = util.formatDate(new Date(list[i].create_time * 1000), 'yyyy-MM-dd hh:mm:ss');
+                if (list[i].status == 0) {
+                  console.log(i)
+                  list_s.push(list[i])
+                } else if (list[i].status == 2) {
+                  list_j.push(list[i])
+                } else if (list[i].status == 4) {
+                  list_c.push(list[i])
+                }
               }
+
               that.setData({
-                myrelyList: list
+                myrelyList: list,
+                list_s: list_s,
+                list_j: list_j,
+                list_c: list_c
               })
             } else {
               console.log(res);
             }
+            wx.hideLoading()
           }
         })
       },

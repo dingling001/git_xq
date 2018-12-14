@@ -267,6 +267,10 @@ page {
   border: 0;
 }
 
+.btns button::after {
+  border: 0;
+}
+
 .btns .linear {
   border: 0;
   background: -webkit-linear-gradient(left, #fd4336, #fd5e2e); /* Safari 5.1 - 6.0 */
@@ -316,9 +320,11 @@ page {
 .btns {
   display: flex;
   align-items: center;
-  border-top: 1px solid #f3f5f7;
+  /* border-top: 1px solid #f3f5f7; */
 }
-
+.city_mold .btns{
+   border-top: 1px solid #f3f5f7;
+}
 .btns view {
   flex: 1;
   color: #fd5a2f;

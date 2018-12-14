@@ -246,7 +246,9 @@ Page({
     }
     this.setData({
       timelist: timelist,
-      times: times
+      times: times,
+      image:[],
+      img_list:[]
     })
   },
   // 获取时间
@@ -307,6 +309,7 @@ Page({
 
   // 选择图片
   rel_img() {
+    
     var that = this;
     var img_list = this.data.img_list;
     wx.chooseImage({
@@ -324,12 +327,13 @@ Page({
             showAdd: false
           })
 
-        } else if (res.tempFiles[0].size > 512000) {
+        } else if (res.tempFiles[0].size > 307200) {
           wx.showToast({
             title: '图片过大',
             icon: 'none'
           })
         } else {
+          console.log(res.tempFilePaths)
           that.setData({
             img_list: that.data.img_list.concat(res.tempFilePaths)
           });
@@ -343,6 +347,7 @@ Page({
   },
   //上传图片
   upload() {
+    console.log(this.data.temp)
     for (var i = this.data.temp; i < this.data.img_list.length; i++) {
       // console.log("000")
       this.upload_file(this.data.img_list[i])
@@ -369,6 +374,11 @@ Page({
           images: that.data.images.concat(JSON.parse(res.data).data.path) //把字符串解析成对象
           // images: imgs
         })
+        if (that.data.images.length >= 9) {
+          that.setData({
+            showAdd: false
+          })
+        }
         console.log(that.data.images)
       },
       fail: function(res) {
@@ -382,11 +392,21 @@ Page({
   //点击删除图片
   delete_img: function(e) {
     var index = e.currentTarget.dataset.index;
+    console.log(this.data.images)
+    this.data.images.splice(index, 1);
     this.data.img_list.splice(index, 1)
     //渲染数据
     this.setData({
-      img_list: this.data.img_list
+      img_list: this.data.img_list,
+      images: this.data.images,
     })
+    console.log(this.data.images)
+    if (this.data.img_list.length <= 9) {
+      this.setData({
+        showAdd: true,
+        temp: 0
+      })
+    }
   },
   // 需求地点
   choose_address() {
@@ -402,6 +422,26 @@ Page({
       }
     })
   },
+  // 预览图片
+  previewImage_fun(e) {
+    var index = e.currentTarget.dataset.index;
+    // console.log(this.data.img_list)
+    for (var i in this.data.img_list) {
+      var imgs = this.data.img_list;
+      console.log(imgs)
+      // if (imgs[i].indexOf(util.base_img_url) == -1) {
+      //   imgs[i] = util.base_img_url + imgs[i]
+      // }
+      this.setData({
+        img_list: imgs
+      })
+    }
+    wx.previewImage({
+      current: this.data.img_list[index], // 当前显示图片的http链接
+      urls: this.data.img_list // 需要预览的图片http链接列表
+    })
+  },
+
   // 判断身份
   ifrealnameAuth() {
     var that = this;
