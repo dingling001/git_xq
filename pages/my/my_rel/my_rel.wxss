@@ -1,5 +1,9 @@
 /* pages/my/my_rel/my_rel.wxss */
 
+page {
+  padding: 0;
+}
+
 .rel_nav {
   display: flex;
   align-items: center;
@@ -35,6 +39,10 @@
   margin-bottom: 31rpx;
 }
 
+.rel_list .nodata {
+  padding: 0 0 30rpx 0;
+}
+
 .rel_content {
   display: flex;
   align-items: center;
@@ -60,9 +68,11 @@
   align-items: center;
   justify-content: space-between;
 }
-.rel_info:last-child{
-  border: 0
+
+.rel_info:last-child {
+  border: 0;
 }
+
 .rel_info_r {
   font-size: 26rpx;
   color: #666;
@@ -103,28 +113,33 @@
   font-size: 20rpx;
   color: #ccc;
 }
+
 .status .rel_info_r {
   color: #fd4336;
 }
+
 /* .pay_status {
   justify-content: flex-end;
 } */
-.pay_status .rel_status:active{
-  opacity: 0.7
+
+.pay_status .rel_status:active {
+  opacity: 0.7;
 }
 
 .pay_status .rel_status {
   border: 1px solid #fd5e2e;
   padding: 7rpx 35rpx;
   text-align: center;
-  color: #FD5B2F;
+  color: #fd5b2f;
   font-size: 26rpx;
   border-radius: 10rpx;
   margin-left: 20rpx;
 }
-.rel_invited{
-  color: #FD5E2E;
+
+.rel_invited {
+  color: #fd5e2e;
 }
-.rel_info:last-child{
+
+.rel_info:last-child {
   border: 0;
 }

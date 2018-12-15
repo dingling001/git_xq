@@ -10,7 +10,7 @@ Page({
     contact: ''
   },
   onLoad: function(options) {
-    console.log(options)
+    // console.log(options)
     this.getMyinfo();
     this.setData({
       contact: app.globalData.contact
@@ -30,7 +30,7 @@ Page({
             token: res_token.data,
           },
           success(res) {
-            console.log(res);
+            // console.log(res);
             if (res.data.code == 1) {
               app.globalData.userInfo = res.data.data;
               that.setData({
