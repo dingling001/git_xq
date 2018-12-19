@@ -1,4 +1,4 @@
-<scroll-view wx:if='{{show_community}}' scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscroll="scroll">
+
   <view class='top_box'>
     <view class='top_nav'>
       <view class='{{show_community?"top_active":""}}' bindtap='community'>社群</view>
@@ -71,7 +71,7 @@
       </view>
     </view>
   </view>
-
+<scroll-view wx:if='{{show_community}}' scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscroll="scroll">
   <view class='index_box'>
     <view class='nodata' wx:if='{{get_rlist.length==0}}'>暂无需求</view>
     <block wx:else>
